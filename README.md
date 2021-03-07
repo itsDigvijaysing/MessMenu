@@ -1,3 +1,3 @@
-# Expo Code
+# Native App of MessMenu
 
-React Native
+React Native with Expo
