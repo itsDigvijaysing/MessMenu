@@ -1,10 +1,12 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
+import AppButton from '../components/AppButton';
 import colors from '../config/colors';
 
 function WelcomeScreen(props) {
     return (
         <ImageBackground
+            blurRadius={0}
             style={styles.background}
             source ={require('../assets/clean-food-commercial.jpg')}>
             <View style={styles.logoContainer}>
@@ -16,8 +18,10 @@ function WelcomeScreen(props) {
                     Let's Check today's Menu
                 </Text>
             </View>
-            <View style={styles.loginButton} ></View>
-            <View style={styles.registerButton} ></View>
+            <View style={styles.buttonContainer}>
+                <AppButton title="Customer Login" color="primary" onPress={() => console.log("Customer")} />         
+                <AppButton title="Mess Owner Login" color="secondary" onPress={() => console.log("Owner")} />         
+            </View>
         </ImageBackground>
     );
 }
@@ -30,17 +34,17 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems:'center',
     },
-    heading:{
-            color: colors.black,
-            // fontSize:'100%',
-            // textShadowRadius:10,
-            // shadowColor:'#fff',
-            fontWeight:'bold',
+    buttonContainer:{
+        padding:20,
+        width:"100%"
     },
-    loginButton:{
-        width: '100%',
-        height: 65,
-        backgroundColor: colors.primary,
+    heading:{
+        color: colors.black,
+        fontSize:16,
+        fontWeight:'bold',
+        textTransform: 'capitalize',
+        textAlign: "center",
+        paddingVertical:10,
     },
     logo:{
         width:100,
@@ -51,10 +55,5 @@ const styles = StyleSheet.create({
         top:40,
         alignItems:'center',
     },
-    registerButton:{
-        width: '100%',
-        height: 65,
-        backgroundColor: colors.secondary,
-    },
-    
+
 })
