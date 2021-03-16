@@ -10,6 +10,7 @@ import AppButton from "./app/components/AppButton";
 import Card from "./app/components/Card";
 import DetailsScreen from "./app/screens/DetailsScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import TestScreen from "./app/screens/TestScreen";
 
 export default function App() {
   return <HomeScreen />;

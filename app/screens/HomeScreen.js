@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, FlatList, View, Text } from "react-native";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
@@ -34,8 +34,8 @@ function HomeScreen(props) {
   return (
     <Screen>
       <FlatList
-        data={initialmess}
-        keyExtractor={(initialmess) => initialmess.id.toString()}
+        data={messmessages}
+        keyExtractor={(messmessages) => messmessages.id.toString()}
         renderItem={({ item }) => (
           <ListItem
             title={item.title}
@@ -50,14 +50,12 @@ function HomeScreen(props) {
         ItemSeparatorComponent={ItemSeparator}
         refreshing={refreshing}
         onRefresh={() => {
-          setmessmessages([
-            {
-              id: 2,
-              title: "ShivaShri",
-              description: "ambegaon bk",
-              image: require("../assets/indian-food-commercial.jpg"),
-            },
-          ]);
+          // setrefreshing({
+          //   id: 2,
+          //   title: "ShivaShri",
+          //   description: "ambegaon bk",
+          //   image: require("../assets/indian-food-commercial.jpg"),
+          // });
         }}
       />
     </Screen>
