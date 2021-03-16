@@ -1,48 +1,55 @@
-import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
-import colors from "../config/colors"
+import React, { useState } from 'react';
+import { StyleSheet, FlatList, View, Text} from 'react-native';
+import ListItem from '../components/ListItem';
+import Screen from '../components/Screen';
+import Constants from 'expo-constants';
+import colors from '../config/colors';
+import ItemSeparator from '../components/ItemSeparator';
+import ListItemSwipeAction from '../components/ListItemSwipeAction';
+
+const mess = [
+    {
+        id:1,
+        title: 'Om sai',
+        description: 'ambegaon bk',
+        image: require('../assets/india-food-commercial.jpg')
+    },
+    {
+        id:2,
+        title: 'ShivaShri',
+        description: 'ambegaon bk',
+        image: require('../assets/indian-food-commercial.jpg')
+    },
+]
 
 function HomeScreen(props) {
+    
+    const [messmessages, setmessmessages] = useState(mess);
+    // const setCount = array[1]; //setState 
+
+    const handleDelete = (messinfo) => {
+        //Delete this message from array
+        setmessmessages(messmessages.filter((m) => m.id !==messinfo.id));
+      }
+
     return (
-        <View style={styles.container}>
-            <View style={styles.closeIcon} />
-            <View style={styles.deleteIcon} />
-            <Image
-            resizeMode="contain" 
-            style={styles.image} 
-            source={require('../assets/cheese-commercial.jpg')} 
+        <Screen>
+            <FlatList
+                data={mess}
+                keyExtractor ={mess => mess.id.toString()}
+                renderItem={({ item }) => 
+                    <ListItem
+                        title={item.title}
+                        subTitle={item.description}
+                        image={item.image}
+                        onPress={() => console.log('Message Selected', item)}
+                        renderRightActions={() => 
+                            <ListItemSwipeAction onPress={() => handleDelete(item)} />} 
+                    /> }
+                ItemSeparatorComponent={ItemSeparator}
             />
-        </View>
-        
-        );
-    }
+        </Screen>
+    );
+}
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-    closeIcon:{
-        width: 30,
-        height: 30,
-        backgroundColor: colors.primary,
-        position: "absolute",
-        top: 30,
-        left: 30,
-    },
-    deleteIcon:{
-        width: 30,
-        height: 30,
-        backgroundColor: colors.secondary,
-        position: "absolute",
-        top: 30,
-        right: 30,
-    },
-    container:{
-        backgroundColor: colors.black,
-        flex: 1
-    },
-    image:{
-        width:"100%",
-        height:"100%",
-    }
-    
-})

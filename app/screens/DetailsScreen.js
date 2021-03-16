@@ -14,7 +14,7 @@ function DetailsScreen(props) {
                 <View 
                     style={styles.userContainer}>
                     <ListItem
-                        image={require('../assets/icon.png')}
+                        image={require('../assets/india-food-commercial.jpg')}
                         title="Some Title"
                         subTitle="Some SubTitle"
                     />
