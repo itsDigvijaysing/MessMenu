@@ -50,12 +50,14 @@ function HomeScreen(props) {
         ItemSeparatorComponent={ItemSeparator}
         refreshing={refreshing}
         onRefresh={() => {
-          // setrefreshing({
-          //   id: 2,
-          //   title: "ShivaShri",
-          //   description: "ambegaon bk",
-          //   image: require("../assets/indian-food-commercial.jpg"),
-          // });
+          setmessmessages([
+            {
+              id: 2,
+              title: "ShivaShri",
+              description: "ambegaon bk",
+              image: require("../assets/indian-food-commercial.jpg"),
+            },
+          ]);
         }}
       />
     </Screen>

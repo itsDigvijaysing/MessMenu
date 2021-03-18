@@ -2,8 +2,8 @@ import React from "react";
 import Constants from "expo-constants";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 
-function Screen({ children }) {
-  return <SafeAreaView style={styles.Screen}>{children}</SafeAreaView>;
+function Screen({ children, style }) {
+  return <SafeAreaView style={[styles.Screen, style]}>{children}</SafeAreaView>; // If gettinh any padding issue Replace {children} by <View style={style}>{children}</View>
 }
 
 export default Screen;
