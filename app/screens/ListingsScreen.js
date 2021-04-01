@@ -8,14 +8,14 @@ import colors from "../config/colors";
 const listings = [
   {
     id: 1,
-    title: "Red Jacket",
-    price: 100,
+    title: "Om Sai Mess",
+    price: 80,
     image: require("../assets/cheese-commercial.jpg"),
   },
   {
     id: 2,
-    title: "White Jacket",
-    price: 200,
+    title: "Sunny Mess",
+    price: 100,
     image: require("../assets/clean-food-commercial.jpg"),
   },
 ];

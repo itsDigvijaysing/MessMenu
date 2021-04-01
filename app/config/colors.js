@@ -7,4 +7,5 @@ export default {
   lightgrey: "#f8f4f4",
   verylightgrey: "#f8f8f8",
   lightred: "#ff5252",
+  darkgrey: "#0c0c0c",
 };

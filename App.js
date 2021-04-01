@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { TextInput } from "react-native";
 import HomeScreen from "./app/screens/HomeScreen";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -16,9 +17,18 @@ import TestScreen from "./app/screens/TestScreen";
 import ListItem from "./app/components/ListItem";
 import CustomerAccountScreen from "./app/screens/CustomerAccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
-  return <ListingsScreen />;
+  const [firstName, setFirstName] = useState("");
+
+  return (
+    <Screen>
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="Email" />
+    </Screen>
+  );
 }
 
 // const styles = StyleSheet.create({
