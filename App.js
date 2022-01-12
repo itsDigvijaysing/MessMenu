@@ -24,10 +24,7 @@ export default function App() {
   const [firstName, setFirstName] = useState("");
 
   return (
-    <Screen>
-      <AppPicker icon="apps" placeholder="Category" />
-      <AppTextInput icon="email" placeholder="Email" />
-    </Screen>
+    <HomeScreen></HomeScreen>
   );
 }
 
