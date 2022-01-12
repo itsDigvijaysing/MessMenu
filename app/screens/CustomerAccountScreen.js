@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 
+// Let's change it to the mess owners info page.
+
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import colors from "../config/colors";
