@@ -1,19 +1,21 @@
-# Native App of MessMenu
+# Mess Menu App with help of Rect Native Framework
 
-React Native with Expo...
+> Current Present things & They will be updated as per requirement.
 
-Screens:-
+## Features:-
 
-TestScreen - For basic testing.
+1. Menu Viewing
 
-WelcomeScreen - For Customer & owner login (Customer login will be as guest, for starting use only owner for login).
+## Screens:-
 
-DetailsScreen - It will show details of mess & it's picture after clicking on it.
+1. TestScreen - For basic testing.
+2. WelcomeScreen - For Customer & owner login (Customer login will be as guest, for starting use only owner for login).
+3. DetailsScreen - It will show details of mess & it's picture after clicking on it.
+4. ViewImageScreen - Will be used to view the screen when user click on any image.
+5. HomeScreen - It shows all the mess list & there logo & name & sub-details (Thali price, location, etc.)
+6. ListingScreen - Useful as homepage it can show all logo, Name & Sub-detail in very good manner.
+7. CustomerAccountScreen - It shows the details about customer but changing to mess owner account info.
 
-ViewImageScreen - Will be used to view the screen when user click on any image.
+## Custom Components:-
 
-HomeScreen - It shows all the mess list & there logo & name & sub-details (Thali price, location, etc.)
-
-ListingScreen - Useful as homepage it can show all logo, Name & Sub-detail in very good manner.
-
-CustomerAccountScreen - It shows the details about customer but changing to mess owner account info.
+Currently 10+ Components Present.
