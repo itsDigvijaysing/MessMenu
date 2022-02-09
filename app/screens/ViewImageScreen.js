@@ -1,22 +1,41 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import AppButton from "../components/AppButton";
 
 function HomeScreen(props) {
   return (
     <View style={styles.container}>
       <View style={styles.closeIcon}>
-        <MaterialCommunityIcons name="close" color="white" size={32} />
+        <TouchableOpacity onPress={() => console.log("Close Image")}>
+          <MaterialCommunityIcons name="close" color="white" size={32} />
+        </TouchableOpacity>
       </View>
-      <View style={styles.deleteIcon}>
-        <MaterialCommunityIcons name="share-variant" color="white" size={32} />
+      <View style={styles.shareIcon}>
+        <TouchableOpacity onPress={() => console.log("Share Image")}>
+          <MaterialCommunityIcons
+            name="share-variant"
+            color="white"
+            size={32}
+          />
+        </TouchableOpacity>
       </View>
-      <Image
-        resizeMode="contain"
-        style={styles.image}
-        source={require("../assets/cheese-commercial.jpg")}
-      />
+      <View>
+        <TouchableOpacity onPress={() => console.log("Image Clicked")}>
+          <Image
+            resizeMode="contain"
+            style={styles.image}
+            source={require("../assets/cheese-commercial.jpg")}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -28,11 +47,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 30,
     left: 30,
+    zIndex: 3,
   },
-  deleteIcon: {
+  shareIcon: {
     position: "absolute",
     top: 30,
     right: 30,
+    zIndex: 3,
   },
   container: {
     backgroundColor: colors.black,

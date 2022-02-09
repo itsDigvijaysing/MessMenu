@@ -7,19 +7,19 @@
 [ ] Work needed to be done
 -->
 
-- [ ] Design work start
+- [ ] Design work start :-
   - [x] WelcomeScreen
   - [x] ViewImageScreen
   - [ ] DetailsScreen
   - [ ] HomeScreen
   - [ ] ListingScreen
   - [ ] CustomerAccountScreen
-- [ ] Development
+- [ ] Development :-
   - [ ] Screen Connect
   - [ ] Backend Data
   - [ ] Login Connection
   - [ ] Others
-- [ ] Unit testing
+- [ ] Unit testing :-
   - [ ] Others
-- [ ] Production
+- [ ] Production :-
   - [ ] Others

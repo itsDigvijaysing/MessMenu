@@ -23,7 +23,7 @@ import AppPicker from "./app/components/AppPicker";
 export default function App() {
   const [firstName, setFirstName] = useState("");
 
-  return <CustomerAccountScreen></CustomerAccountScreen>;
+  return <ViewImageScreen></ViewImageScreen>;
 }
 
 // const styles = StyleSheet.create({
