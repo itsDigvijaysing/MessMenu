@@ -2,10 +2,15 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ title, onPress, color = "primary" }) {
+import { useNavigation } from "@react-navigation/core";
+
+function AppButton({ title, screen, onPress, color = "primary" }) {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}
+      // onPress={() => navigation.navigate(screen)}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>

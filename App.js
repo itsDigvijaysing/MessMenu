@@ -1,35 +1,47 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { TextInput } from "react-native";
-import HomeScreen from "./app/screens/HomeScreen";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import AppText from "./app/components/AppText";
-import AppButton from "./app/components/AppButton";
-import Card from "./app/components/Card";
+import { Button, Text, View, style, StyleSheet } from "react-native";
 import Screen from "./app/components/Screen";
-import Icon from "./app/components/Icon";
-import DetailsScreen from "./app/screens/DetailsScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+
 import TestScreen from "./app/screens/TestScreen";
-import ListItem from "./app/components/ListItem";
-import CustomerAccountScreen from "./app/screens/CustomerAccountScreen";
-import ListingsScreen from "./app/screens/ListingsScreen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
+
+const Tweets = ({ navigation }) => (
+  <Screen>
+    <Text>Tweets</Text>
+    <Button
+      title="View Tweet"
+      onPress={() => navigation.navigate("TestScreen")}
+    />
+  </Screen>
+);
+
+const TweetsDetails = () => (
+  <Screen>
+    <Text>Tweets Details</Text>
+  </Screen>
+);
+
+const Stack = createStackNavigator();
+const StackNavigator = () => (
+  <Stack.Navigator initialRouteName="Tweets">
+    <Stack.Screen name="Tweets" component={Tweets} />
+    <Stack.Screen name="TweetsDetails" component={TweetsDetails} />
+    <Stack.Screen name="TestScreen" component={TestScreen} />
+  </Stack.Navigator>
+);
 
 export default function App() {
-  const [firstName, setFirstName] = useState("");
-
-  return <ViewImageScreen></ViewImageScreen>;
+  return (
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
+  );
 }
 
 // const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,AppText: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
+//   fortext: {
+//     justifyContent: "flex-end",
+//     alignItems: "center",
 //   },
 // });

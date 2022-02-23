@@ -1,9 +1,11 @@
 import React from "react";
 import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       blurRadius={0}
@@ -21,12 +23,13 @@ function WelcomeScreen(props) {
         <AppButton
           title="Customer Login"
           color="primary"
-          onPress={() => console.log("Customer")}
+          // screen="HomeScreen"
+          onPress={() => console.log("Home Screen")}
         />
         <AppButton
           title="Mess Owner Login"
           color="secondary"
-          onPress={() => console.log("Owner")}
+          onPress={() => console.log("Owner Screen")}
         />
       </View>
     </ImageBackground>
