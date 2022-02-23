@@ -11,9 +11,6 @@ function AppButton({ title, screen, onPress, color = "primary" }) {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}
-      // onPress={() => {
-      //   onPress || navigation.navigate(screen);
-      // }}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>

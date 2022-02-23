@@ -1,16 +1,30 @@
 import React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import {
+  Image,
+  View,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
 
-function DetailsScreen(props) {
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+
+function DetailsScreen({ navigation }) {
   return (
     <View>
-      <Image
-        style={styles.image}
-        source={require("../assets/indian-food-commercial.jpg")}
-      />
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={() => navigation.navigate("ViewImageScreen")}
+      >
+        <Image
+          style={styles.image}
+          source={require("../assets/indian-food-commercial.jpg")}
+        />
+      </TouchableOpacity>
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>Sunny Mess</AppText>
         <AppText style={styles.price}>60rs</AppText>

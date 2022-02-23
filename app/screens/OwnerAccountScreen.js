@@ -11,7 +11,7 @@ import ItemSeaprator from "../components/ItemSeparator";
 
 const menuItems = [
   {
-    title: "My Listing",
+    title: "Mess Images",
     icon: {
       name: "format-list-bulleted",
       backgroundColor: colors.primary,

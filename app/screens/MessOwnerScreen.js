@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 
-function MessOwnerScreen(props) {
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+
+function MessOwnerScreen({ navigation }) {
   return (
     <View style={styles.viewtext}>
       <AppText style={styles.textlock}>
@@ -17,6 +20,10 @@ function MessOwnerScreen(props) {
         {"\n"}
         Thank You for using our App.
       </AppText>
+      <Button
+        title="Screen sample"
+        onPress={() => navigation.navigate("OwnerAccountScreen")}
+      />
     </View>
   );
 }

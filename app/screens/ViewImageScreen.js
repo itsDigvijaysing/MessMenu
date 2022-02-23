@@ -9,12 +9,13 @@ import {
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "../components/AppButton";
+import { NavigationContainer } from "@react-navigation/native";
 
-function HomeScreen(props) {
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={styles.closeIcon}>
-        <TouchableOpacity onPress={() => console.log("Close Image")}>
+      {/* <View style={styles.closeIcon}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <MaterialCommunityIcons name="close" color="white" size={32} />
         </TouchableOpacity>
       </View>
@@ -26,7 +27,7 @@ function HomeScreen(props) {
             size={32}
           />
         </TouchableOpacity>
-      </View>
+      </View> */}
       <View>
         <TouchableOpacity onPress={() => console.log("Image Clicked")}>
           <Image
