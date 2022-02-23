@@ -13,7 +13,7 @@
   - [ ] DetailsScreen
   - [ ] HomeScreen
   - [ ] ListingScreen
-  - [ ] CustomerAccountScreen
+  - [ ] OwnerAccountScreen
 - [ ] Development :-
   - [ ] Screen Connect
   - [ ] Backend Data

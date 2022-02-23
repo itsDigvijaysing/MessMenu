@@ -14,7 +14,7 @@
 4. ViewImageScreen - Will be used to view the screen when user click on any image.
 5. HomeScreen - It shows all the mess list & there logo & name & sub-details (Thali price, location, etc.)
 6. ListingScreen - Useful as homepage it can show all logo, Name & Sub-detail in very good manner.
-7. CustomerAccountScreen - It shows the details about customer but changing to mess owner account info.
+7. OwnerAccountScreen - It shows the details about customer but changing to mess owner account info.
 
 ## Custom Components:-
 

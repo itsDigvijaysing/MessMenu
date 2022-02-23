@@ -26,7 +26,7 @@ const menuItems = [
   },
 ];
 
-function CustomerAccountScreen(props) {
+function OwnerAccountScreen(props) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -62,7 +62,7 @@ function CustomerAccountScreen(props) {
   );
 }
 
-export default CustomerAccountScreen;
+export default OwnerAccountScreen;
 
 const styles = StyleSheet.create({
   container: {
