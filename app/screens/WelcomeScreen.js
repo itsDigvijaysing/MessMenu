@@ -1,5 +1,12 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View, Image, Text } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  Button,
+} from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AppButton from "../components/AppButton";
@@ -23,13 +30,12 @@ function WelcomeScreen({ navigation }) {
         <AppButton
           title="Customer Login"
           color="primary"
-          // screen="HomeScreen"
-          onPress={() => console.log("Home Screen")}
+          onPress={() => navigation.navigate("HomeScreen")}
         />
         <AppButton
           title="Mess Owner Login"
           color="secondary"
-          onPress={() => console.log("Owner Screen")}
+          onPress={() => navigation.navigate("MessOwnerScreen")}
         />
       </View>
     </ImageBackground>

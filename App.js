@@ -4,43 +4,22 @@ import Screen from "./app/components/Screen";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 import TestScreen from "./app/screens/TestScreen";
 import DetailsScreen from "./app/screens/DetailsScreen";
-import ListingScreen from "./app/screens/ListingsScreen";
-
-const Link = () => {
-  const navigation = useNavigation();
-
-  return (
-    <Button title="Clicked" onPress={() => navigation.navigate("TestScreen")} />
-  );
-};
-
-const Tweets = ({ navigation }) => (
-  <Screen>
-    <Text>Tweets</Text>
-    <Link />
-  </Screen>
-);
-
-const TweetsDetails = ({ navigation }) => (
-  <Screen>
-    <Text>Tweets Details</Text>
-    <Button
-      title="Go To Tweets"
-      onPress={() => navigation.navigate("Tweets")}
-    />
-  </Screen>
-);
+import ListingsScreen from "./app/screens/ListingsScreen";
+import MessOwnerScreen from "./app/screens/MessOwnerScreen";
+import HomeScreen from "./app/screens/HomeScreen";
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator initialRouteName="Tweets">
-    <Stack.Screen name="Tweets" component={Tweets} />
-    <Stack.Screen name="TweetsDetails" component={TweetsDetails} />
+  <Stack.Navigator initialRouteName="WelcomeScreen">
+    <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+    <Stack.Screen name="HomeScreen" component={HomeScreen} />
     <Stack.Screen name="TestScreen" component={TestScreen} />
     <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-    <Stack.Screen name="ListingScreen" component={ListingScreen} />
+    <Stack.Screen name="MessOwnerScreen" component={MessOwnerScreen} />
+    <Stack.Screen name="ListingsScreen" component={ListingsScreen} />
   </Stack.Navigator>
 );
 

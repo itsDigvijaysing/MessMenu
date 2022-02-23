@@ -2,7 +2,8 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
-import { useNavigation } from "@react-navigation/core";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function AppButton({ title, screen, onPress, color = "primary" }) {
   const navigation = useNavigation();
@@ -10,7 +11,9 @@ function AppButton({ title, screen, onPress, color = "primary" }) {
   return (
     <TouchableOpacity
       style={[styles.button, { backgroundColor: colors[color] }]}
-      // onPress={() => navigation.navigate(screen)}
+      // onPress={() => {
+      //   onPress || navigation.navigate(screen);
+      // }}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>
