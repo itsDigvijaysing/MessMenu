@@ -11,29 +11,38 @@ import ItemSeaprator from "../components/ItemSeparator";
 
 const menuItems = [
   {
-    title: "Mess Images",
+    title: "Update Menu Images",
     icon: {
       name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
   },
   {
-    title: "My Messages",
+    title: "Views",
     icon: {
-      name: "email",
+      name: "eye",
+      backgroundColor: colors.medium,
+    },
+  },
+  {
+    title: "Update Mess Details",
+    icon: {
+      name: "details",
       backgroundColor: colors.secondary,
     },
   },
 ];
 
-function OwnerAccountScreen(props) {
+function OwnerAccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Digvijaysing"
-          subTitle="Digvijaysing@gmail.com"
-          image={require("../assets/Gamer.jpg")}
+          title="Om Sai Mess"
+          subTitle="omsaimess@gmail.abc"
+          image={{
+            uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
+          }}
         />
       </View>
       <View style={styles.container}>
@@ -57,6 +66,7 @@ function OwnerAccountScreen(props) {
       <ListItem
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        onPress={() => navigation.navigate("WelcomeScreen")}
       />
     </Screen>
   );

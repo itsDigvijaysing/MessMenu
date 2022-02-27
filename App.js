@@ -21,6 +21,7 @@ import MessOwnerScreen from "./app/screens/MessOwnerScreen";
 import HomeScreen from "./app/screens/HomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import OwnerAccountScreen from "./app/screens/OwnerAccountScreen";
+import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
@@ -56,7 +57,7 @@ const StackNavigator = () => (
     <Stack.Screen
       name="MessOwnerScreen"
       component={MessOwnerScreen}
-      options={{ title: "Mess Owner Section" }}
+      options={{ title: "Owner Login" }}
     />
     <Stack.Screen
       name="ListingsScreen"
@@ -87,6 +88,11 @@ const StackNavigator = () => (
       name="OwnerAccountScreen"
       component={OwnerAccountScreen}
       options={{ title: "Owner Account Section" }}
+    />
+    <Stack.Screen
+      name="MessOwnerCreateAccScreen"
+      component={MessOwnerCreateAccScreen}
+      options={{ title: "New Mess Account" }}
     />
     <Stack.Screen
       name="TestScreen"

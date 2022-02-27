@@ -1,4 +1,3 @@
-import React from "react";
 import {
   ImageBackground,
   View,
@@ -11,15 +10,17 @@ import {
 } from "react-native";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
+import React from "react";
 
 import colors from "../config/colors";
 
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
-
-function MessOwnerScreen({ navigation }) {
+function MessOwnerCreateAccScreen({ navigation }) {
   const [text, onChangeText] = React.useState(null);
   const [pass, onChangePass] = React.useState(null);
+  const [number, onChangeNumber] = React.useState(null);
+  // const [email, onChangeEmail] = React.useState(null);
+  const [name, onChangeName] = React.useState(null);
+  const [address, onChangeAddress] = React.useState(null);
 
   return (
     <ImageBackground
@@ -32,12 +33,12 @@ function MessOwnerScreen({ navigation }) {
           style={{
             fontWeight: "bold",
             textAlign: "center",
-            padding: 15,
+            paddingTop: 15,
             fontSize: 30,
-            color: colors.primary,
+            color: colors.secondary,
           }}
         >
-          Welcome Back!
+          Welcome...
         </AppText>
         <AppText
           style={{
@@ -53,40 +54,56 @@ function MessOwnerScreen({ navigation }) {
           style={styles.input}
           onChangeText={onChangeText}
           value={text}
-          placeholder="UserName / Email ID"
+          placeholder="Email ID (User ID)"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeName}
+          value={name}
+          placeholder="Enter Your Name"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Enter Your Contact No"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeAddress}
+          value={address}
+          placeholder="Enter Your Address"
         />
         <TextInput
           style={styles.input}
           onChangeText={onChangePass}
           value={pass}
-          placeholder="Password"
+          placeholder="Create New Password"
         />
         <View style={styles.buttonContainer}>
           <AppButton
-            title="Login"
-            color="primary"
-            onPress={() => navigation.navigate("OwnerAccountScreen")}
+            title="Create Accout"
+            color="secondary"
+            onPress={() => navigation.navigate("MessOwnerScreen")}
           />
         </View>
       </View>
 
       <View style={styles.buttonContainer}>
         <AppButton
-          title="Create New Account"
-          color="secondary"
-          onPress={() => navigation.navigate("MessOwnerCreateAccScreen")}
+          title="Login"
+          color="primary"
+          onPress={() => navigation.navigate("MessOwnerScreen")}
         />
       </View>
     </ImageBackground>
   );
 }
 
-export default MessOwnerScreen;
-
 const styles = StyleSheet.create({
   input: {
     height: 50,
-    margin: 15,
+    margin: 10,
     borderWidth: 3,
     borderRadius: 20,
     width: "80%",
@@ -119,11 +136,13 @@ const styles = StyleSheet.create({
   },
   plainContainer: {
     position: "absolute",
-    top: "20%",
-    height: "60%",
+    top: "15%",
+    height: "70%",
     width: "80%",
     alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 20,
   },
 });
+
+export default MessOwnerCreateAccScreen;

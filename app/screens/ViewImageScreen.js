@@ -11,7 +11,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "../components/AppButton";
 import { NavigationContainer } from "@react-navigation/native";
 
-function HomeScreen({ navigation }) {
+function ViewImageScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* <View style={styles.closeIcon}>
@@ -44,7 +44,7 @@ function HomeScreen({ navigation }) {
   );
 }
 
-export default HomeScreen;
+export default ViewImageScreen;
 
 const styles = StyleSheet.create({
   closeIcon: {
