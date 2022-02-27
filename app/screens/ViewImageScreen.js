@@ -33,7 +33,10 @@ function HomeScreen({ navigation }) {
           <Image
             resizeMode="contain"
             style={styles.image}
-            source={require("../assets/cheese-commercial.jpg")}
+            // source={{
+            //   uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
+            // }}
+            source={require("../assets/om_sai_menu_sample.jpg")}
           />
         </TouchableOpacity>
       </View>

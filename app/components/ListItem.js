@@ -3,34 +3,43 @@ import {
   View,
   StyleSheet,
   Image,
+  Text,
   TouchableOpacity,
   TouchableHighlight,
 } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function ListItem({
   title,
   subTitle,
   image,
   onPress,
+  price,
   renderRightActions,
   IconComponent,
 }) {
+  const navigation = useNavigation();
   return (
-    <Swipeable renderRightActions={renderRightActions}>
-      <TouchableHighlight underlayColor={colors.lightgrey} onPress={onPress}>
-        <View style={styles.container}>
-          {IconComponent}
-          {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailContainer}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
-          </View>
+    // <Swipeable renderRightActions={renderRightActions}>   //It will be good to delete item
+    <TouchableHighlight underlayColor={colors.lightgrey} onPress={onPress}>
+      <View style={styles.container}>
+        {IconComponent}
+        {image && <Image style={styles.image} source={image} />}
+        <View style={styles.detailContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
         </View>
-      </TouchableHighlight>
-    </Swipeable>
+        {price && (
+          <View style={styles.prices}>
+            <AppText style={{ fontWeight: "bold" }}>{price}</AppText>
+          </View>
+        )}
+      </View>
+    </TouchableHighlight>
+    //</Swipeable>
   );
 }
 
@@ -56,5 +65,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
+  },
+  prices: {
+    justifyContent: "center",
+    position: "absolute",
+    alignContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    right: 20,
+    backgroundColor: "#f8f4f4",
+    width: 60,
+    height: 60,
+    borderRadius: 20,
   },
 });
