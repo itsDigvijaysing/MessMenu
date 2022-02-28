@@ -1,4 +1,4 @@
-# Demo Link: https://www.youtube.com/watch?v=xetzHk-LvHg
+# Demo Video Link: https://www.youtube.com/watch?v=xetzHk-LvHg
 
 # Mess Menu App with help of Rect Native Framework
 
