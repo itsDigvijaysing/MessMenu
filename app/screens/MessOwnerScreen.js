@@ -8,6 +8,7 @@ import {
   TextInput,
   SafeAreaView,
   useWindowDimensions,
+  KeyboardAvoidingView,
 } from "react-native";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
@@ -37,7 +38,7 @@ function MessOwnerScreen({ navigation }) {
             color: colors.primary,
           }}
         >
-          Welcome Back!
+          Welcome Back
         </AppText>
         <AppText
           style={{
@@ -94,7 +95,8 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   background: {
-    flex: 1,
+    height: 820,
+    width: 420,
     justifyContent: "flex-end",
     alignItems: "center",
   },
