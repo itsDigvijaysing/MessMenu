@@ -30,7 +30,7 @@ function WelcomeScreen({ navigation }) {
         <AppButton
           title="Customer Login"
           color="primary"
-          onPress={() => navigation.navigate("HomeScreen")}
+          onPress={() => navigation.navigate("ListingsScreen")}
         />
         <AppButton
           title="Mess Owner Login"
