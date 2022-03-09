@@ -7,6 +7,9 @@
     "web": "expo start --web",
     "eject": "expo eject"
   },
+  "resolutions": {
+    "react-devtools-core": "4.14.0"
+  },
   "dependencies": {
     "@react-native-community/hooks": "^2.6.0",
     "@react-native-community/masked-view": "^0.1.11",

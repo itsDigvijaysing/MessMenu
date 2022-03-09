@@ -6,8 +6,11 @@
   "scripts": {
     "start": "node index.js"
   },
+  "resolutions": {
+    "react-devtools-core": "4.14.0"
+  },
   "engines": {
-    "node": "12.6.x"
+    "node": ">=12.6.x"
   },
   "keywords": [],
   "author": "Mosh Hamedani",

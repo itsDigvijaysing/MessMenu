@@ -26,7 +26,7 @@ import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
 const Stack = createStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator
-    initialRouteName="WelcomeScreen"
+    initialRouteName="ListingsScreen"
     screenOptions={{
       headerTitleAlign: "center",
       headerStyle: {
