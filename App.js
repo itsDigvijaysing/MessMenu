@@ -26,7 +26,7 @@ import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
 const Stack = createStackNavigator();
 const StackNavigator = () => (
   <Stack.Navigator
-    initialRouteName="ListingsScreen"
+    initialRouteName="WelcomeScreen"
     screenOptions={{
       headerTitleAlign: "center",
       headerStyle: {
@@ -82,7 +82,6 @@ const StackNavigator = () => (
           </TouchableOpacity>
         ),
       }}
-      // options={{ headerShown: false }}
     />
     <Stack.Screen
       name="OwnerAccountScreen"
