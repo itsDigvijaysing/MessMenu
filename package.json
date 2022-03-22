@@ -42,5 +42,18 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "private": true
+  "private": true,
+  "name": "messmenu",
+  "description": "> Current Present things & They will be updated as per requirement.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoyalTechie/MessMenu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoyalTechie/MessMenu/issues"
+  },
+  "homepage": "https://github.com/RoyalTechie/MessMenu#readme"
 }

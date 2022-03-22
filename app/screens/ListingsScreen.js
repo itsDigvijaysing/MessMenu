@@ -44,13 +44,15 @@ function ListingsScreen({ navigation }) {
       />
       <FlatList
         data={listings}
-        keyExtractor={(listings) => listings.id.toString()}
+        keyExtractor={(listings) => listings._id.toString()}
         renderItem={({ item }) => (
           <Card
-            title={item.title}
-            subTitle={"$" + item.price}
-            imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate("DetailsScreen")}
+            title={item.messname}
+            subTitle={"$" + item.messthaliprice}
+            imageUrl={item.messimage}
+            onPress={() =>
+              navigation.navigate("DetailsScreen", { Itemid: item._id })
+            }
           />
         )}
       />

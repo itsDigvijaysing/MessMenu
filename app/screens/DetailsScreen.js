@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Image,
   View,
@@ -9,11 +9,26 @@ import {
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
+import listingsApi from "../api/listings";
+import useApi from "../hooks/useApi";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
-function DetailsScreen({ navigation }) {
+function DetailsScreen({ route, navigation }) {
+  const { Itemid } = route.params;
+
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
+
+  useEffect(() => {
+    loadListings();
+  }, []);
+
   return (
     <View>
       <TouchableOpacity
@@ -22,7 +37,9 @@ function DetailsScreen({ navigation }) {
       >
         <Image
           style={styles.image}
-          source={require("../assets/om_sai_menu_sample.jpg")} //Currently using local value
+          source={{
+            uri: "https://blobstorageformessmenu.blob.core.windows.net/messmenuimages/Om_Sai_Mess_Menu.jpeg",
+          }} //Currently using local value
         />
       </TouchableOpacity>
       <View style={styles.detailsContainer}>
@@ -32,9 +49,9 @@ function DetailsScreen({ navigation }) {
           title="Om Sai Mess"
           subTitle="Ambegaon Bk"
           image={{
-            uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
+            uri: "https://blobstorageformessmenu.blob.core.windows.net/messimages/Om_Sai_Mess.jpeg",
           }}
-          price="60"
+          price={Itemid}
           onPress={() => navigation.navigate("DetailsScreen")}
         />
       </View>
