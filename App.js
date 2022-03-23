@@ -15,14 +15,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import TestScreen from "./app/screens/TestScreen";
 import DetailsScreen from "./app/screens/DetailsScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
-import MessOwnerScreen from "./app/screens/MessOwnerScreen";
+import MessOwnerLoginScreen from "./app/screens/MessOwnerLoginScreen";
 import HomeScreen from "./app/screens/HomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import OwnerAccountScreen from "./app/screens/OwnerAccountScreen";
 import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
+import UpdateImageScreen from "./app/screens/UpdateImageScreen";
+import UpdateDetailsScreen from "./app/screens/UpdateDetailsScreen";
 
 // It only allow basic txt send due to expo so export and add react-native-share
 const onShare = async () => {
@@ -68,8 +69,8 @@ const StackNavigator = () => (
       options={{ title: "Details" }}
     />
     <Stack.Screen
-      name="MessOwnerScreen"
-      component={MessOwnerScreen}
+      name="MessOwnerLoginScreen"
+      component={MessOwnerLoginScreen}
       options={{ title: "Owner Login" }}
     />
     <Stack.Screen
@@ -127,9 +128,14 @@ const StackNavigator = () => (
       options={{ title: "New Mess Account" }}
     />
     <Stack.Screen
-      name="TestScreen"
-      component={TestScreen}
-      options={{ title: "Test Screen" }}
+      name="UpdateImageScreen"
+      component={UpdateImageScreen}
+      options={{ title: "Update Image Screen" }}
+    />
+    <Stack.Screen
+      name="UpdateDetailsScreen"
+      component={UpdateDetailsScreen}
+      options={{ title: "Update Details Screen" }}
     />
   </Stack.Navigator>
 );

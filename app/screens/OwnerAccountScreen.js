@@ -22,7 +22,7 @@ function OwnerAccountScreen({ navigation }) {
       <TouchableOpacity style={styles.container}>
         <ListItem
           title="Om Sai Mess"
-          subTitle="omsaimess@gmail.abc"
+          subTitle="locations"
           image={{
             uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
           }}
@@ -42,7 +42,7 @@ function OwnerAccountScreen({ navigation }) {
             IconComponent={
               <Icon name="image" backgroundColor={colors.primary} />
             }
-            // onPress={() => navigation.navigate("WelcomeScreen")}
+            onPress={() => navigation.navigate("UpdateImageScreen")}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>
@@ -54,7 +54,7 @@ function OwnerAccountScreen({ navigation }) {
                 backgroundColor={colors.secondary}
               />
             }
-            // onPress={() => navigation.navigate("WelcomeScreen")}
+            onPress={() => navigation.navigate("UpdateDetailsScreen")}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>

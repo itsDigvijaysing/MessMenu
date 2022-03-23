@@ -35,7 +35,7 @@ function WelcomeScreen({ navigation }) {
         <AppButton
           title="Mess Owner Login"
           color="secondary"
-          onPress={() => navigation.navigate("MessOwnerScreen")}
+          onPress={() => navigation.navigate("MessOwnerLoginScreen")}
         />
       </View>
     </ImageBackground>

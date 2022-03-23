@@ -10,7 +10,7 @@
 
 ## Screens:-
 
-1. TestScreen - For basic testing.
+1. TestScreen - For basic testing. (Removed)
 2. WelcomeScreen - For Customer & owner login (Customer login will be as guest, for starting use only owner for login).
 3. DetailsScreen - It will show details of mess & it's picture after clicking on it.
 4. ViewImageScreen - Will be used to view the screen when user click on any image.

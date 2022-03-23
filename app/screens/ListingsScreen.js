@@ -49,7 +49,7 @@ function ListingsScreen({ navigation }) {
           item.messonline && (
             <Card
               title={item.messname}
-              subTitle={"$" + item.messthaliprice}
+              subTitle={"Rs " + item.messthaliprice}
               imageUrl={item.messimage}
               onPress={() =>
                 navigation.navigate("DetailsScreen", { Itemid: item })

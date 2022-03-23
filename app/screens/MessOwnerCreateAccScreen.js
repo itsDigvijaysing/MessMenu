@@ -7,6 +7,7 @@ import {
   TextInput,
   SafeAreaView,
   useWindowDimensions,
+  ScrollView,
 } from "react-native";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
@@ -15,10 +16,9 @@ import React from "react";
 import colors from "../config/colors";
 
 function MessOwnerCreateAccScreen({ navigation }) {
-  const [text, onChangeText] = React.useState(null);
   const [pass, onChangePass] = React.useState(null);
   const [number, onChangeNumber] = React.useState(null);
-  // const [email, onChangeEmail] = React.useState(null);
+  const [email, onChangeEmail] = React.useState(null);
   const [name, onChangeName] = React.useState(null);
   const [address, onChangeAddress] = React.useState(null);
 
@@ -28,74 +28,85 @@ function MessOwnerCreateAccScreen({ navigation }) {
       source={require("../assets/snacks-commercial.jpg")}
       blurRadius={5}
     >
-      <View style={styles.plainContainer}>
-        <AppText
+      <ScrollView>
+        <View
           style={{
-            fontWeight: "bold",
-            textAlign: "center",
-            paddingTop: 15,
-            fontSize: 30,
-            color: colors.secondary,
+            alignItems: "center",
+            justifyContent: "center",
+            alignContent: "center",
+            marginTop: "10%",
           }}
         >
-          Welcome...
-        </AppText>
-        <AppText
-          style={{
-            fontWeight: "bold",
-            textAlign: "center",
-            padding: 15,
-            fontSize: 20,
-          }}
-        >
-          Plz Enter your Credentials
-        </AppText>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeText}
-          value={text}
-          placeholder="Email ID (User ID)"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeName}
-          value={name}
-          placeholder="Enter Your Name"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
-          placeholder="Enter Your Contact No"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeAddress}
-          value={address}
-          placeholder="Enter Your Address"
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangePass}
-          value={pass}
-          placeholder="Create New Password"
-        />
-        <View style={styles.buttonContainer}>
-          <AppButton
-            title="Create Accout"
-            color="secondary"
-            onPress={() => navigation.navigate("MessOwnerScreen")}
-          />
-        </View>
-      </View>
+          <View style={styles.plainContainer}>
+            <AppText
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                paddingTop: 15,
+                fontSize: 30,
+                color: colors.darkgrey,
+              }}
+            >
+              Welcome
+            </AppText>
+            <AppText
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                padding: 15,
+                fontSize: 20,
+              }}
+            >
+              Enter your Credentials
+            </AppText>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeEmail}
+              value={email}
+              placeholder="Email ID (User ID)"
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeName}
+              value={name}
+              placeholder="Enter Your Mess Name"
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeNumber}
+              value={number}
+              placeholder="Enter Your Contact No"
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeAddress}
+              value={address}
+              placeholder="Enter Your Address"
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangePass}
+              value={pass}
+              placeholder="Create New Password"
+            />
+            <View style={styles.boxbuttonContainer}>
+              <AppButton
+                title="Create Accout"
+                color="secondary"
+                onPress={() => navigation.navigate("MessOwnerLoginScreen")}
+              />
+            </View>
+          </View>
 
-      <View style={styles.buttonContainer}>
-        <AppButton
-          title="Login"
-          color="primary"
-          onPress={() => navigation.navigate("MessOwnerScreen")}
-        />
-      </View>
+          <View style={styles.buttonContainer}>
+            <AppButton
+              title="Login"
+              color="primary"
+              onPress={() => navigation.navigate("MessOwnerLoginScreen")}
+            />
+          </View>
+        </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
@@ -104,20 +115,25 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     margin: 10,
-    borderWidth: 3,
-    borderRadius: 20,
+    alignSelf: "center",
+    borderWidth: 1,
+    borderRadius: 25,
     width: "80%",
-    backgroundColor: "#f8f4f4",
+    backgroundColor: colors.white,
+    borderColor: colors.medium,
     padding: 15,
   },
   background: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
   },
   buttonContainer: {
+    marginTop: 25,
     padding: 20,
     width: "80%",
+  },
+  boxbuttonContainer: {
+    padding: 20,
+    width: "90%",
   },
   textlock: {
     textAlign: "center",
@@ -135,12 +151,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#EFEFEF",
   },
   plainContainer: {
-    position: "absolute",
-    top: "15%",
-    height: "70%",
-    width: "80%",
+    // position: "absolute",
+    // height: "80%",
+    width: "85%",
     alignItems: "center",
-    backgroundColor: "#fff",
+    // justifyContent: "center",
+    // alignSelf: "center",
+    backgroundColor: "#f8f8f8",
     borderRadius: 20,
   },
 });
