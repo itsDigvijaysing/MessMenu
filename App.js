@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Share,
   Button,
   Text,
   View,
@@ -22,6 +23,17 @@ import HomeScreen from "./app/screens/HomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import OwnerAccountScreen from "./app/screens/OwnerAccountScreen";
 import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
+
+// It only allow basic txt send due to expo so export and add react-native-share
+const onShare = async () => {
+  try {
+    const result = await Share.share({
+      message: "React Native | Welcome to Mess Menu App \n Store Link: #",
+    });
+  } catch (error) {
+    alert(error.message);
+  }
+};
 
 const Stack = createStackNavigator();
 const StackNavigator = () => (
@@ -73,7 +85,7 @@ const StackNavigator = () => (
           backgroundColor: "#000",
         },
         headerRight: () => (
-          <TouchableOpacity onPress={() => console.log("Share Image")}>
+          <TouchableOpacity onPress={onShare}>
             <MaterialCommunityIcons
               name="share-variant"
               color="white"

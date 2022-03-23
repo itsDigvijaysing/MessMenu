@@ -11,7 +11,23 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppButton from "../components/AppButton";
 import { NavigationContainer } from "@react-navigation/native";
 
-function ViewImageScreen({ navigation }) {
+function ViewImageScreen({ route, navigation }) {
+  // react-native-share has problem with expo so using basic fucnctionality only txt share
+  // const myCustomShare = async () => {
+  //   const ShareOptions = {
+  //     message: "Welcome to Mess Menu",
+  //   };
+
+  //   try {
+  //     const ShareResponse = await Share.open(ShareOptions);
+  //   } catch (err) {
+  //     console.log("Error: " + err);
+  //   }
+  // };
+
+  // Basic Only Txt sending
+
+  const { onemessimage } = route.params;
   return (
     <View style={styles.container}>
       {/* <View style={styles.closeIcon}>
@@ -36,7 +52,7 @@ function ViewImageScreen({ navigation }) {
             // source={{
             //   uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
             // }}
-            source={require("../assets/om_sai_menu_sample.jpg")}
+            source={{ uri: onemessimage }}
           />
         </TouchableOpacity>
       </View>

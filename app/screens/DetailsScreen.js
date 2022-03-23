@@ -4,6 +4,7 @@ import {
   View,
   StyleSheet,
   Button,
+  Text,
   TouchableOpacity,
 } from "react-native";
 import AppText from "../components/AppText";
@@ -11,6 +12,7 @@ import colors from "../config/colors";
 import ListItem from "../components/ListItem";
 import listingsApi from "../api/listings";
 import useApi from "../hooks/useApi";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -18,44 +20,50 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 function DetailsScreen({ route, navigation }) {
   const { Itemid } = route.params;
 
-  const {
-    data: listings,
-    error,
-    loading,
-    request: loadListings,
-  } = useApi(listingsApi.getListings);
+  var parcelinfo = "Not Present";
+  if (Itemid.messparcel) {
+    parcelinfo = "Present";
+  }
+  // const {
+  //   data: listings,
+  //   error,
+  //   loading,
+  //   request: loadListings,
+  // } = useApi(listingsApi.getListings);
 
-  useEffect(() => {
-    loadListings();
-  }, []);
+  // useEffect(() => {
+  //   loadListings();
+  // }, []);
 
   return (
     <View>
       <TouchableOpacity
         activeOpacity={0.5}
-        onPress={() => navigation.navigate("ViewImageScreen")}
+        onPress={() =>
+          navigation.navigate("ViewImageScreen", {
+            onemessimage: Itemid.messmenuimage,
+          })
+        }
       >
         <Image
           style={styles.image}
           source={{
-            uri: "https://blobstorageformessmenu.blob.core.windows.net/messmenuimages/Om_Sai_Mess_Menu.jpeg",
-          }} //Currently using local value
+            uri: Itemid.messmenuimage,
+          }}
         />
       </TouchableOpacity>
       <View style={styles.detailsContainer}>
-        {/* <AppText style={styles.title}>Om Sai Mess</AppText>
-        <AppText style={styles.price}>60rs</AppText> */}
         <ListItem
-          title="Om Sai Mess"
-          subTitle="Ambegaon Bk"
+          title={Itemid.messname}
+          subTitle={Itemid.messaddress}
           image={{
-            uri: "https://blobstorageformessmenu.blob.core.windows.net/messimages/Om_Sai_Mess.jpeg",
+            uri: Itemid.messimage,
           }}
-          price={Itemid}
-          onPress={() => navigation.navigate("DetailsScreen")}
+          price={Itemid.messthaliprice}
+          // onPress={() => navigation.navigate("DetailsScreen")}
         />
       </View>
-      <View style={styles.userContainer}>
+      {/* <View style={styles.userContainer}>
         <AppText
           style={{ fontWeight: "bold", padding: 15, paddingBottom: -15 }}
         >
@@ -66,14 +74,81 @@ function DetailsScreen({ route, navigation }) {
           Matki Fry Usal{"\n"}
           Gajar Halwa{"\n"}
         </AppText>
+      </View> */}
+      <View style={styles.userContainer}>
+        <View style={{ flexDirection: "row" }}>
+          <MaterialCommunityIcons
+            name="eye-circle"
+            color="lightgrey"
+            size={35}
+            style={{
+              padding: 15,
+              paddingRight: 0,
+            }}
+          />
+          <AppText style={styles.data}>
+            <Text style={styles.forText}>Views Count: </Text>
+          </AppText>
+        </View>
+      </View>
+
+      <View style={styles.foodtypeContainer}>
+        {Itemid.messveg && (
+          <View
+            style={{
+              backgroundColor: colors.secondary,
+              borderRadius: 10,
+              flex: 1,
+              padding: 10,
+            }}
+          >
+            <Text
+              style={{
+                color: colors.white,
+                fontWeight: "bold",
+                alignSelf: "center",
+              }}
+            >
+              Veg
+            </Text>
+          </View>
+        )}
+        {Itemid.messnonveg && (
+          <View
+            style={{
+              backgroundColor: colors.primary,
+              borderRadius: 10,
+              flex: 1,
+            }}
+          >
+            <Text
+              style={{
+                color: colors.white,
+                fontWeight: "bold",
+                alignSelf: "center",
+                padding: 10,
+              }}
+            >
+              Non Veg
+            </Text>
+          </View>
+        )}
       </View>
 
       <View style={styles.userContainer}>
         <AppText style={styles.data}>
-          Mess Type: Veg and Non Veg{"\n"}
-          Mess Parcal System: Present{"\n"}1 Month Mess Charge (60t): 3000{" "}
+          <Text style={styles.forText}>Thali Price: </Text>
+          {Itemid.messthaliprice}
           {"\n"}
-          Contact No: 1234568790
+          <Text style={styles.forText}>Monthly Mess Price (60T): </Text>
+          {Itemid.messmonthlyprice}
+          {"\n"}
+          <Text style={styles.forText}>Parcel System: </Text>
+          {parcelinfo}
+          {/* {String(Itemid.messparcel)} */}
+          {"\n"}
+          <Text style={styles.forText}>Contact No: </Text>
+          {Itemid.messcontact}
         </AppText>
       </View>
     </View>
@@ -92,11 +167,25 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     margin: 15,
+    marginTop: 0,
     backgroundColor: "#fff",
   },
-  data: {
+  foodtypeContainer: {
+    margin: 15,
+    marginTop: 0,
     padding: 15,
-    fontWeight: "300",
+    backgroundColor: "#fff",
+    flexDirection: "row",
+  },
+  forText: {
+    fontWeight: "bold",
+  },
+  data: {
+    // alignContent: "center",
+    // alignItems: "center",
+    alignSelf: "center",
+    padding: 15,
+    fontWeight: "500",
   },
   price: {
     color: colors.secondary,

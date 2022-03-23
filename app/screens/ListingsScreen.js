@@ -45,16 +45,18 @@ function ListingsScreen({ navigation }) {
       <FlatList
         data={listings}
         keyExtractor={(listings) => listings._id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            title={item.messname}
-            subTitle={"$" + item.messthaliprice}
-            imageUrl={item.messimage}
-            onPress={() =>
-              navigation.navigate("DetailsScreen", { Itemid: item._id })
-            }
-          />
-        )}
+        renderItem={({ item }) =>
+          item.messonline && (
+            <Card
+              title={item.messname}
+              subTitle={"$" + item.messthaliprice}
+              imageUrl={item.messimage}
+              onPress={() =>
+                navigation.navigate("DetailsScreen", { Itemid: item })
+              }
+            />
+          )
+        }
       />
     </Screen>
   );
