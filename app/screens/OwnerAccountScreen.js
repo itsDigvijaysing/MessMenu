@@ -1,5 +1,11 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  FlatList,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 // Let's change it to the mess owners info page.
 
@@ -8,66 +14,66 @@ import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ItemSeaprator from "../components/ItemSeparator";
-
-const menuItems = [
-  {
-    title: "Update Menu Images",
-    icon: {
-      name: "format-list-bulleted",
-      backgroundColor: colors.primary,
-    },
-  },
-  {
-    title: "Views",
-    icon: {
-      name: "eye",
-      backgroundColor: colors.medium,
-    },
-  },
-  {
-    title: "Update Mess Details",
-    icon: {
-      name: "details",
-      backgroundColor: colors.secondary,
-    },
-  },
-];
+import AppText from "../components/AppText";
 
 function OwnerAccountScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container}>
         <ListItem
           title="Om Sai Mess"
           subTitle="omsaimess@gmail.abc"
           image={{
             uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
           }}
+          // onPress={() => navigation.navigate("")}
         />
-      </View>
+      </TouchableOpacity>
       <View style={styles.container}>
-        <FlatList
-          data={menuItems}
-          keyExtractor={(menuItem) => menuItem.title}
-          ItemSeparatorComponent={ItemSeaprator}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item.title}
-              IconComponent={
-                <Icon
-                  name={item.icon.name}
-                  backgroundColor={item.icon.backgroundColor}
-                />
-              }
-            />
-          )}
-        />
+        <View style={styles.separatecontainer}>
+          <ListItem
+            title="Daily Views :"
+            IconComponent={<Icon name="eye" backgroundColor={colors.medium} />}
+          />
+        </View>
+        <TouchableOpacity style={styles.separatecontainer}>
+          <ListItem
+            title="Update Menu Images"
+            IconComponent={
+              <Icon name="image" backgroundColor={colors.primary} />
+            }
+            // onPress={() => navigation.navigate("WelcomeScreen")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.innercontainer}>
+          <ListItem
+            title="Update Mess Details"
+            IconComponent={
+              <Icon
+                name="format-list-bulleted"
+                backgroundColor={colors.secondary}
+              />
+            }
+            // onPress={() => navigation.navigate("WelcomeScreen")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.innercontainer}>
+          <ListItem
+            title="All Mess Menus"
+            IconComponent={
+              <Icon name="find-replace" backgroundColor="#54CC5C" />
+            }
+            onPress={() => navigation.navigate("ListingsScreen")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.separatecontainer}>
+          <ListItem
+            title="Log Out"
+            IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+            onPress={() => navigation.navigate("WelcomeScreen")}
+          />
+        </TouchableOpacity>
       </View>
-      <ListItem
-        title="Log Out"
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
-        onPress={() => navigation.navigate("WelcomeScreen")}
-      />
     </Screen>
   );
 }
@@ -76,7 +82,17 @@ export default OwnerAccountScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    marginVertical: 10,
+  },
+  innercontainer: {
+    margin: 5,
+    padding: 5,
+    marginTop: 0,
+  },
+  separatecontainer: {
+    margin: 5,
+    padding: 5,
+    marginTop: 15,
   },
   screen: {
     backgroundColor: colors.verylightgrey,

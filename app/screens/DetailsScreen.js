@@ -13,6 +13,7 @@ import ListItem from "../components/ListItem";
 import listingsApi from "../api/listings";
 import useApi from "../hooks/useApi";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Icon from "../components/Icon";
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -42,6 +43,7 @@ function DetailsScreen({ route, navigation }) {
         onPress={() =>
           navigation.navigate("ViewImageScreen", {
             onemessimage: Itemid.messmenuimage,
+            onemessname: Itemid.messname,
           })
         }
       >
@@ -77,17 +79,16 @@ function DetailsScreen({ route, navigation }) {
       </View> */}
       <View style={styles.userContainer}>
         <View style={{ flexDirection: "row" }}>
-          <MaterialCommunityIcons
-            name="eye-circle"
-            color="lightgrey"
-            size={35}
+          <View
             style={{
               padding: 15,
               paddingRight: 0,
             }}
-          />
+          >
+            <Icon name="eye" backgroundColor="lightgrey" size={35} />
+          </View>
           <AppText style={styles.data}>
-            <Text style={styles.forText}>Views Count: </Text>
+            <Text style={styles.forText}>Daily Views : </Text>
           </AppText>
         </View>
       </View>

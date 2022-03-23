@@ -27,7 +27,7 @@ function ViewImageScreen({ route, navigation }) {
 
   // Basic Only Txt sending
 
-  const { onemessimage } = route.params;
+  const onemess = route.params;
   return (
     <View style={styles.container}>
       {/* <View style={styles.closeIcon}>
@@ -52,7 +52,7 @@ function ViewImageScreen({ route, navigation }) {
             // source={{
             //   uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
             // }}
-            source={{ uri: onemessimage }}
+            source={{ uri: onemess.onemessimage }}
           />
         </TouchableOpacity>
       </View>

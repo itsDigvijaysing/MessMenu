@@ -28,7 +28,8 @@ import MessOwnerCreateAccScreen from "./app/screens/MessOwnerCreateAccScreen";
 const onShare = async () => {
   try {
     const result = await Share.share({
-      message: "React Native | Welcome to Mess Menu App \n Store Link: #",
+      // title: route.params.onemessname,
+      message: "Welcome to Mess Menu App \n Store Link: #",
     });
   } catch (error) {
     alert(error.message);
@@ -79,8 +80,28 @@ const StackNavigator = () => (
     <Stack.Screen
       name="ViewImageScreen"
       component={ViewImageScreen}
-      options={{
-        title: "Full Resolution Image",
+      title={({ route }) => ({
+        title: route.params.onemessname,
+      })}
+      // options={{
+      //   headerStyle: {
+      //     backgroundColor: "#000",
+      //   },
+      //   // title: ({ route }) => ({ title: route.params.onemessname }),
+      //   headerRight: () => (
+      //     <TouchableOpacity onPress={onShare}>
+      //       <MaterialCommunityIcons
+      //         name="share-variant"
+      //         color="white"
+      //         size={32}
+      //       />
+      //     </TouchableOpacity>
+      //   ),
+      // }}
+
+      // Worked header messname after 2+ hrs
+      options={({ route }) => ({
+        title: route.params.onemessname,
         headerStyle: {
           backgroundColor: "#000",
         },
@@ -93,7 +114,7 @@ const StackNavigator = () => (
             />
           </TouchableOpacity>
         ),
-      }}
+      })}
     />
     <Stack.Screen
       name="OwnerAccountScreen"

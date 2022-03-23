@@ -24,7 +24,7 @@ function ListItem({
   const navigation = useNavigation();
   return (
     // <Swipeable renderRightActions={renderRightActions}>   //It will be good to delete item
-    <TouchableHighlight underlayColor={colors.lightgrey} onPress={onPress}>
+    <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
       <View style={styles.container}>
         {IconComponent}
         {image && <Image style={styles.image} source={image} />}
