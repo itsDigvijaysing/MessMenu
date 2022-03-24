@@ -16,16 +16,16 @@ import Icon from "../components/Icon";
 import ItemSeaprator from "../components/ItemSeparator";
 import AppText from "../components/AppText";
 
-function OwnerAccountScreen({ navigation }) {
+function OwnerAccountScreen({ route, navigation }) {
+  const { alldata } = route.params;
+
   return (
     <Screen style={styles.screen}>
       <TouchableOpacity style={styles.container}>
         <ListItem
-          title="Om Sai Mess"
-          subTitle="locations"
-          image={{
-            uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
-          }}
+          title={alldata.messname}
+          subTitle={alldata.messaddress}
+          imageUrl={alldata.messimage}
           // onPress={() => navigation.navigate("")}
         />
       </TouchableOpacity>
@@ -54,7 +54,11 @@ function OwnerAccountScreen({ navigation }) {
                 backgroundColor={colors.secondary}
               />
             }
-            onPress={() => navigation.navigate("UpdateDetailsScreen")}
+            onPress={() =>
+              navigation.navigate("UpdateDetailsScreen", {
+                messdata: alldata,
+              })
+            }
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>

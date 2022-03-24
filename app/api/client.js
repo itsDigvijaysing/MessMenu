@@ -1,9 +1,10 @@
 import { create } from "apisauce";
+import { baseURL } from "./baseurl";
 
 //192.168.0.5 is basically localhost
 
 const apiClient = create({
-  baseURL: "http://192.168.0.5:9000/messdetails",
+  baseURL: baseURL,
 });
 
 export default apiClient;

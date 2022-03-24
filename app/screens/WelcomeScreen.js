@@ -28,12 +28,12 @@ function WelcomeScreen({ navigation }) {
       </View>
       <View style={styles.buttonContainer}>
         <AppButton
-          title="Customer Login"
+          title="Customer"
           color="primary"
           onPress={() => navigation.navigate("ListingsScreen")}
         />
         <AppButton
-          title="Mess Owner Login"
+          title="Mess Owner"
           color="secondary"
           onPress={() => navigation.navigate("MessOwnerLoginScreen")}
         />

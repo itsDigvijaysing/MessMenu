@@ -15,7 +15,7 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 function ListItem({
   title,
   subTitle,
-  image,
+  imageUrl,
   onPress,
   price,
   renderRightActions,
@@ -27,7 +27,7 @@ function ListItem({
     <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
       <View style={styles.container}>
         {IconComponent}
-        {image && <Image style={styles.image} source={image} />}
+        {imageUrl && <Image style={styles.image} source={{ uri: imageUrl }} />}
         <View style={styles.detailContainer}>
           <AppText style={styles.title}>{title}</AppText>
           {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}

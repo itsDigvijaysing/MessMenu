@@ -16,12 +16,57 @@ import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
 
+import listingsApi from "../api/listings";
+import Toast from "react-native-simple-toast";
+import { baseURL } from "../api/baseurl";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
-function MessOwnerLoginScreen({ navigation }) {
-  const [text, onChangeText] = React.useState(null);
+function MessOwnerLoginScreen({ route, navigation }) {
+  const [email, onChangeEmail] = React.useState(null);
   const [pass, onChangePass] = React.useState(null);
+
+  let AllData = null;
+  const authURL = baseURL + "/auth";
+
+  let toAccountLogin = () => {
+    if (email && pass) {
+      try {
+        fetch(authURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            pass: pass,
+          }),
+        })
+          .then((r) => r.json())
+          .then((data) => {
+            AllData = data;
+            // console.log(AllData);
+          })
+          .then((res) => {
+            // this.setState({ message: "New Value Added" });
+            if (AllData) {
+              Toast.show("Login Successful");
+              navigation.navigate("OwnerAccountScreen", {
+                alldata: AllData,
+              });
+            } else {
+              Toast.show("Please ReCheck Email & Password");
+            }
+            // navigation.navigate("MessOwnerLoginScreen");
+          });
+      } catch (error) {
+        console.log("Error : " + error);
+        Toast.show("There are some errors");
+      }
+    } else {
+      Toast.show("Please fill all the Credentials");
+    }
+  };
 
   return (
     <ImageBackground
@@ -62,8 +107,8 @@ function MessOwnerLoginScreen({ navigation }) {
           </AppText>
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={onChangeEmail}
+            value={email}
             placeholder="UserName / Email ID"
           />
           <TextInput
@@ -76,7 +121,8 @@ function MessOwnerLoginScreen({ navigation }) {
             <AppButton
               title="Login"
               color="primary"
-              onPress={() => navigation.navigate("OwnerAccountScreen")}
+              // onPress={() => console.log(authURL)}
+              onPress={() => toAccountLogin()}
             />
           </View>
         </View>

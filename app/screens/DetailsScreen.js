@@ -92,7 +92,6 @@ function DetailsScreen({ route, navigation }) {
           </AppText>
         </View>
       </View>
-
       <View style={styles.foodtypeContainer}>
         {Itemid.messveg && (
           <View

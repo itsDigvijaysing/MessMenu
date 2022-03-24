@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ImageBackground,
   View,
@@ -16,18 +16,94 @@ import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
 
+import Toast from "react-native-simple-toast";
+import { baseURL } from "../api/baseurl";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function UpdateDetailsScreen({ route, navigation }) {
   // const [text, onChangeText] = React.useState(null);
-  const [pass, onChangePass] = React.useState(null);
-  const [number, onChangeNumber] = React.useState(null);
-  const [email, onChangeEmail] = React.useState(null);
-  const [name, onChangeName] = React.useState(null);
-  const [address, onChangeAddress] = React.useState(null);
-  const [thaliprice, onChangeThaliPrice] = React.useState(null);
-  const [monthlyprice, onChangeMonthlyPrice] = React.useState(null);
+  const [pass, onChangePass] = useState(null);
+  const [number, onChangeNumber] = useState(null);
+  const [email, onChangeEmail] = useState(null);
+  const [name, onChangeName] = useState(null);
+  const [address, onChangeAddress] = useState(null);
+  const [thaliprice, onChangeThaliPrice] = useState(null);
+  const [monthlyprice, onChangeMonthlyPrice] = useState(null);
+
+  const { messdata } = route.params;
+
+  const updateURL = baseURL + "/" + messdata._id;
+
+  let toUpdateDetails = () => {
+    if (
+      email ||
+      name ||
+      pass ||
+      number ||
+      address ||
+      thaliprice ||
+      monthlyprice
+    ) {
+      // console.log(email, name, pass, number, address, thaliprice, monthlyprice);
+      let thingstoupdate = {};
+      if (email) {
+        thingstoupdate["email"] = email;
+      }
+      if (name) {
+        thingstoupdate["messname"] = name;
+      }
+      if (pass) {
+        thingstoupdate["pass"] = pass;
+      }
+      if (number) {
+        thingstoupdate["messcontact"] = number;
+      }
+      if (address) {
+        thingstoupdate["messaddress"] = address;
+      }
+      if (thaliprice) {
+        thingstoupdate["messthaliprice"] = thaliprice;
+      }
+      if (monthlyprice) {
+        thingstoupdate["messmonthlyprice"] = monthlyprice;
+      }
+
+      // console.log(thingstoupdate);
+      try {
+        // console.log(
+        //   email,
+        //   name,
+        //   pass,
+        //   number,
+        //   messaddress,
+        //   messthaliprice,
+        //   messmonthlyprice
+        // );
+        fetch(updateURL, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(thingstoupdate),
+        })
+          .then((r) => r.json())
+          // .then((data) => {
+          //   console.log(data);
+          // })
+          .then((res) => {
+            console.log(res);
+            Toast.show("Details Updated Successfully");
+            navigation.goBack();
+          });
+      } catch (error) {
+        console.log("Error : " + error);
+        Toast.show("There are some errors");
+      }
+    } else {
+      Toast.show("Please Add Something to Update");
+    }
+  };
 
   return (
     <ScrollView>
@@ -45,12 +121,7 @@ function UpdateDetailsScreen({ route, navigation }) {
           Update Mess Details
         </AppText>
         {/* Veg Non Veg Parcal remaining */}
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeEmail}
-          value={email}
-          placeholder="Update Email ID"
-        />
+
         <TextInput
           style={styles.input}
           onChangeText={onChangeName}
@@ -83,6 +154,12 @@ function UpdateDetailsScreen({ route, navigation }) {
         />
         <TextInput
           style={styles.input}
+          onChangeText={onChangeEmail}
+          value={email}
+          placeholder="Update Email ID"
+        />
+        <TextInput
+          style={styles.input}
           onChangeText={onChangePass}
           value={pass}
           placeholder="Update Password"
@@ -92,14 +169,15 @@ function UpdateDetailsScreen({ route, navigation }) {
             <AppButton
               title="Update"
               color="secondary"
-              onPress={() => navigation.navigate("OwnerAccountScreen")}
+              // onPress={() => console.log(updateURL)}
+              onPress={() => toUpdateDetails()}
             />
           </View>
           <View style={styles.mainbutton}>
             <AppButton
               title="Cancel"
               color="primary"
-              onPress={() => navigation.navigate("OwnerAccountScreen")}
+              onPress={() => navigation.goBack()}
             />
           </View>
         </View>

@@ -53,7 +53,7 @@ function UpdateImageScreen({ route, navigation }) {
           <AppButton
             title="Cancel"
             color="primary"
-            onPress={() => navigation.navigate("OwnerAccountScreen")}
+            onPress={() => navigation.goBack()}
           />
         </View>
       </View>

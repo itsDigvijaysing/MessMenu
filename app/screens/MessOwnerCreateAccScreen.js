@@ -6,6 +6,7 @@ import {
   Button,
   TextInput,
   SafeAreaView,
+  ToastAndroid,
   useWindowDimensions,
   ScrollView,
 } from "react-native";
@@ -14,13 +15,66 @@ import AppButton from "../components/AppButton";
 import React from "react";
 
 import colors from "../config/colors";
+import listingsApi from "../api/listings";
+import client from "../api/client";
+import useApi from "../hooks/useApi";
+import { useState } from "react";
+import Toast from "react-native-simple-toast";
+import { baseURL } from "../api/baseurl";
 
 function MessOwnerCreateAccScreen({ navigation }) {
-  const [pass, onChangePass] = React.useState(null);
-  const [number, onChangeNumber] = React.useState(null);
   const [email, onChangeEmail] = React.useState(null);
+  const [pass, onChangePass] = React.useState(null);
   const [name, onChangeName] = React.useState(null);
-  const [address, onChangeAddress] = React.useState(null);
+
+  // const { data: listings, error, loading } = useApi(listingsApi.postListings);
+
+  // const postroute = listingsApi.postListings;
+
+  let onCreateAccount = () => {
+    if (email && name && pass) {
+      try {
+        fetch(baseURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            messname: name,
+            pass: pass,
+          }),
+        })
+          .then((r) => r.json())
+          // .then((data) => {
+          //   console.log(data);
+          // })
+          .then((res) => {
+            // this.setState({ message: "New Value Added" });
+            Toast.show("Account Created Successfully");
+            navigation.navigate("MessOwnerLoginScreen");
+          });
+      } catch (error) {
+        console.log("Error : " + error);
+        Toast.show("There are some errors");
+      }
+    } else {
+      Toast.show("Please fill all the Credentials ...");
+    }
+  };
+
+  // const handleSubmit = async (userInfo) => {
+  //   const result = await
+
+  //   if (!result.ok) {
+  //     if (result.data) setError(result.data.error);
+  //     else {
+  //       setError("An unexpected error occurred.");
+  //       console.log(result);
+  //     }
+  //     return;
+  //   }
+  // };
 
   return (
     <ImageBackground
@@ -73,18 +127,6 @@ function MessOwnerCreateAccScreen({ navigation }) {
             />
             <TextInput
               style={styles.input}
-              onChangeText={onChangeNumber}
-              value={number}
-              placeholder="Enter Your Contact No"
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={onChangeAddress}
-              value={address}
-              placeholder="Enter Your Address"
-            />
-            <TextInput
-              style={styles.input}
               onChangeText={onChangePass}
               value={pass}
               placeholder="Create New Password"
@@ -93,9 +135,11 @@ function MessOwnerCreateAccScreen({ navigation }) {
               <AppButton
                 title="Create Accout"
                 color="secondary"
-                onPress={() => navigation.navigate("MessOwnerLoginScreen")}
+                // onPress={() => console.log(baseURL)}
+                onPress={() => onCreateAccount()}
               />
             </View>
+            {/* <p>{this.state.message}</p> */}
           </View>
 
           <View style={styles.buttonContainer}>
@@ -152,11 +196,12 @@ const styles = StyleSheet.create({
   },
   plainContainer: {
     // position: "absolute",
-    // height: "80%",
+    // top: "20%",
+    // height: "75%",
+    paddingTop: "10%",
+    paddingBottom: "10%",
     width: "85%",
     alignItems: "center",
-    // justifyContent: "center",
-    // alignSelf: "center",
     backgroundColor: "#f8f8f8",
     borderRadius: 20,
   },
