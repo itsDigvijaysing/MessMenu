@@ -88,7 +88,7 @@ function DetailsScreen({ route, navigation }) {
             <Icon name="eye" backgroundColor="lightgrey" size={35} />
           </View>
           <AppText style={styles.data}>
-            <Text style={styles.forText}>Daily Views : </Text>
+            <Text style={styles.forText}>Daily Views : 99</Text>
           </AppText>
         </View>
       </View>

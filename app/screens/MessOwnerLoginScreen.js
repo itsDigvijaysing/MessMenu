@@ -15,7 +15,7 @@ import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
-
+import * as Yup from "yup";
 import listingsApi from "../api/listings";
 import Toast from "react-native-simple-toast";
 import { baseURL } from "../api/baseurl";

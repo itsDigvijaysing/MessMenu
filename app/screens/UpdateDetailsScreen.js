@@ -11,6 +11,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from "react-native";
+import * as Yup from "yup";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 
@@ -45,7 +46,6 @@ function UpdateDetailsScreen({ route, navigation }) {
       thaliprice ||
       monthlyprice
     ) {
-      // console.log(email, name, pass, number, address, thaliprice, monthlyprice);
       let thingstoupdate = {};
       if (email) {
         thingstoupdate["email"] = email;
@@ -68,18 +68,7 @@ function UpdateDetailsScreen({ route, navigation }) {
       if (monthlyprice) {
         thingstoupdate["messmonthlyprice"] = monthlyprice;
       }
-
-      // console.log(thingstoupdate);
       try {
-        // console.log(
-        //   email,
-        //   name,
-        //   pass,
-        //   number,
-        //   messaddress,
-        //   messthaliprice,
-        //   messmonthlyprice
-        // );
         fetch(updateURL, {
           method: "PATCH",
           headers: {

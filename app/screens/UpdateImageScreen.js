@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
-
+import * as Yup from "yup";
 import ImageInput from "../components/ImageInput";
 import ImageInputList from "../components/ImageInputList";
 import AppPicker from "../components/Picker";
 import FormImagePicker from "../components/FormImagePicker";
-import * as Yup from "yup";
 import AppButton from "../components/AppButton";
 import AppText from "../components/Text";
 

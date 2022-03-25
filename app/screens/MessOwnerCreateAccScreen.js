@@ -13,6 +13,7 @@ import {
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import React from "react";
+import * as Yup from "yup";
 
 import colors from "../config/colors";
 import listingsApi from "../api/listings";
@@ -21,6 +22,12 @@ import useApi from "../hooks/useApi";
 import { useState } from "react";
 import Toast from "react-native-simple-toast";
 import { baseURL } from "../api/baseurl";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label(),
+  name: Yup.string().required().label(),
+  pass: Yup.string().required().min(4).label(),
+});
 
 function MessOwnerCreateAccScreen({ navigation }) {
   const [email, onChangeEmail] = React.useState(null);
@@ -135,8 +142,9 @@ function MessOwnerCreateAccScreen({ navigation }) {
               <AppButton
                 title="Create Accout"
                 color="secondary"
-                // onPress={() => console.log(baseURL)}
-                onPress={() => onCreateAccount()}
+                onPress={() => console.log(validationSchema)}
+                // onPress={() => onCreateAccount()}
+                // validationSchema={validationSchema}
               />
             </View>
             {/* <p>{this.state.message}</p> */}

@@ -32,7 +32,7 @@ function OwnerAccountScreen({ route, navigation }) {
       <View style={styles.container}>
         <View style={styles.separatecontainer}>
           <ListItem
-            title="Daily Views :"
+            title="Daily Views : 99"
             IconComponent={<Icon name="eye" backgroundColor={colors.medium} />}
           />
         </View>
