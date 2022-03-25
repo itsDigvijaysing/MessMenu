@@ -33,7 +33,7 @@ function UpdateDetailsScreen({ route, navigation }) {
   const [monthlyprice, onChangeMonthlyPrice] = useState(null);
 
   const { messdata } = route.params;
-
+  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const updateURL = baseURL + "/" + messdata._id;
 
   let toUpdateDetails = () => {
@@ -48,24 +48,29 @@ function UpdateDetailsScreen({ route, navigation }) {
     ) {
       let thingstoupdate = {};
       if (email) {
-        thingstoupdate["email"] = email;
+        if (reg.test(email))
+          thingstoupdate["email"] = email.replace(/\s/g, "").toLowerCase();
+        else Toast.show("Please Enter Valid Email");
       }
       if (name) {
-        thingstoupdate["messname"] = name;
+        thingstoupdate["messname"] = name.replace(/\s+/g, " ");
       }
       if (pass) {
-        thingstoupdate["pass"] = pass;
+        if (pass.length > 4) thingstoupdate["pass"] = pass;
+        else Toast.show("Minimum Password Length is 5");
       }
       if (number) {
-        thingstoupdate["messcontact"] = number;
+        if (number < 9999999999 && number > 1000000000)
+          thingstoupdate["messcontact"] = number;
+        else Toast.show("10 Digit Contact No. Valid Only");
       }
       if (address) {
         thingstoupdate["messaddress"] = address;
       }
-      if (thaliprice) {
+      if (thaliprice && thaliprice > 0) {
         thingstoupdate["messthaliprice"] = thaliprice;
       }
-      if (monthlyprice) {
+      if (monthlyprice && monthlyprice > 0) {
         thingstoupdate["messmonthlyprice"] = monthlyprice;
       }
       try {
@@ -82,7 +87,7 @@ function UpdateDetailsScreen({ route, navigation }) {
           // })
           .then((res) => {
             console.log(res);
-            Toast.show("Details Updated Successfully");
+            Toast.show("Valid Details Updated Successfully");
             navigation.goBack();
           });
       } catch (error) {
@@ -122,18 +127,21 @@ function UpdateDetailsScreen({ route, navigation }) {
           onChangeText={onChangeThaliPrice}
           value={thaliprice}
           placeholder="Update Your Thali Price"
+          keyboardType="numeric"
         />
         <TextInput
           style={styles.input}
           onChangeText={onChangeMonthlyPrice}
           value={monthlyprice}
           placeholder="Update Monthly Mess Price"
+          keyboardType="numeric"
         />
         <TextInput
           style={styles.input}
           onChangeText={onChangeNumber}
           value={number}
           placeholder="Update your Contact No"
+          keyboardType="numeric"
         />
         <TextInput
           style={styles.input}
@@ -151,6 +159,7 @@ function UpdateDetailsScreen({ route, navigation }) {
           style={styles.input}
           onChangeText={onChangePass}
           value={pass}
+          secureTextEntry={true}
           placeholder="Update Password"
         />
         <View style={{ flex: 1, flexDirection: "row" }}>

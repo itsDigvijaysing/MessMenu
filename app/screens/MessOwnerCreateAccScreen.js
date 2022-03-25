@@ -35,35 +35,41 @@ function MessOwnerCreateAccScreen({ navigation }) {
   const [name, onChangeName] = React.useState(null);
 
   // const { data: listings, error, loading } = useApi(listingsApi.postListings);
-
+  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   // const postroute = listingsApi.postListings;
 
   let onCreateAccount = () => {
     if (email && name && pass) {
-      try {
-        fetch(baseURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            messname: name,
-            pass: pass,
-          }),
-        })
-          .then((r) => r.json())
-          // .then((data) => {
-          //   console.log(data);
-          // })
-          .then((res) => {
-            // this.setState({ message: "New Value Added" });
-            Toast.show("Account Created Successfully");
-            navigation.navigate("MessOwnerLoginScreen");
-          });
-      } catch (error) {
-        console.log("Error : " + error);
-        Toast.show("There are some errors");
+      if (pass.length > 4 && reg.test(email)) {
+        try {
+          fetch(baseURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: email.replace(/\s/g, "").toLowerCase(),
+              messname: name.replace(/\s+/g, " "),
+              pass: pass,
+            }),
+          })
+            .then((r) => r.json())
+            // .then((data) => {
+            //   console.log(data);
+            // })
+            .then((res) => {
+              // this.setState({ message: "New Value Added" });
+              Toast.show("Account Created Successfully");
+              navigation.navigate("MessOwnerLoginScreen");
+            });
+        } catch (error) {
+          console.log("Error : " + error);
+          Toast.show("There are some errors");
+        }
+      } else if (pass.length <= 4) {
+        Toast.show("Minimum Password Length is 5");
+      } else {
+        Toast.show("Please Enter Valid Email");
       }
     } else {
       Toast.show("Please fill all the Credentials ...");
@@ -136,14 +142,15 @@ function MessOwnerCreateAccScreen({ navigation }) {
               style={styles.input}
               onChangeText={onChangePass}
               value={pass}
+              secureTextEntry={true}
               placeholder="Create New Password"
             />
             <View style={styles.boxbuttonContainer}>
               <AppButton
                 title="Create Accout"
                 color="secondary"
-                onPress={() => console.log(validationSchema)}
-                // onPress={() => onCreateAccount()}
+                // onPress={() => console.log(validationSchema)}
+                onPress={() => onCreateAccount()}
                 // validationSchema={validationSchema}
               />
             </View>

@@ -38,7 +38,7 @@ function MessOwnerLoginScreen({ route, navigation }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: email,
+            email: email.replace(/\s/g, "").toLowerCase(),
             pass: pass,
           }),
         })
@@ -115,6 +115,7 @@ function MessOwnerLoginScreen({ route, navigation }) {
             style={styles.input}
             onChangeText={onChangePass}
             value={pass}
+            secureTextEntry={true}
             placeholder="Password"
           />
           <View style={styles.boxbuttonContainer}>
