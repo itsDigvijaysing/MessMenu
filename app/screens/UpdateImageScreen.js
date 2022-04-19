@@ -8,6 +8,8 @@ import AppPicker from "../components/Picker";
 import FormImagePicker from "../components/FormImagePicker";
 import AppButton from "../components/AppButton";
 import AppText from "../components/Text";
+import Toast from "react-native-simple-toast";
+import { EAzureBlobStorageFile } from "react-native-azure-blob-storage";
 
 function UpdateImageScreen({ route, navigation }) {
   const [imageUri, setImageUri] = useState();
@@ -31,7 +33,7 @@ function UpdateImageScreen({ route, navigation }) {
             color: colors.darkgrey,
           }}
         >
-          Update Menu Image
+          Update Image
         </Text>
       </View>
       <View style={styles.container}>
@@ -45,7 +47,9 @@ function UpdateImageScreen({ route, navigation }) {
           <AppButton
             title="Update"
             color="secondary"
-            onPress={() => navigation.navigate("OwnerAccountScreen")}
+            onPress={() => {
+              navigation.goBack(), Toast.show("Working on it...");
+            }}
           />
         </View>
         <View style={styles.mainbutton}>

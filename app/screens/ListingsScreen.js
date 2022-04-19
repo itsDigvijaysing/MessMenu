@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
@@ -10,6 +10,7 @@ import colors from "../config/colors";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import useApi from "../hooks/useApi";
+import SearchBar from "react-native-dynamic-search-bar";
 
 function ListingsScreen({ navigation }) {
   const {
@@ -42,6 +43,24 @@ function ListingsScreen({ navigation }) {
           alignItems: "center",
         }}
       />
+      <SearchBar
+        style={{
+          margin: 10,
+          marginTop: 0,
+          width: "95%",
+          borderWidth: 1,
+          borderColor: "#3f3f3f",
+          backgroundColor: "#fff",
+        }}
+        fontColor="#c6c6c6"
+        iconColor="#c6c6c6"
+        cancelIconColor="#c6c6c6"
+        placeholder="Search here"
+        onChangeText={(text) => console.log(text)}
+        onSearchPress={() => console.log("Search Icon is pressed")}
+        onClearPress={() => console.log("Clear Button Pressed")}
+        // onPress={() => alert("onPress")}
+      />
       <FlatList
         data={listings}
         keyExtractor={(listings) => listings._id.toString()}
@@ -67,6 +86,6 @@ export default ListingsScreen;
 const styles = StyleSheet.create({
   screen: {
     padding: 10,
-    backgroundColor: colors.verylightgrey,
+    backgroundColor: "#f0f0f0",
   },
 });

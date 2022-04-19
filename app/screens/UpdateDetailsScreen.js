@@ -10,11 +10,11 @@ import {
   useWindowDimensions,
   KeyboardAvoidingView,
   ScrollView,
+  Switch,
 } from "react-native";
 import * as Yup from "yup";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
-
 import colors from "../config/colors";
 
 import Toast from "react-native-simple-toast";
@@ -23,16 +23,28 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function UpdateDetailsScreen({ route, navigation }) {
+  const { messdata } = route.params;
+  let initialswitchinfo = {
+    messveg: messdata.messveg,
+    messnonveg: messdata.messnonveg,
+    messparcel: messdata.messparcel,
+  };
   // const [text, onChangeText] = React.useState(null);
   const [pass, onChangePass] = useState(null);
   const [number, onChangeNumber] = useState(null);
   const [email, onChangeEmail] = useState(null);
   const [name, onChangeName] = useState(null);
-  const [address, onChangeAddress] = useState(null);
   const [thaliprice, onChangeThaliPrice] = useState(null);
   const [monthlyprice, onChangeMonthlyPrice] = useState(null);
+  const [address, onChangeAddress] = useState(null);
+  const [messveg, onChangeMessVeg] = useState(initialswitchinfo.messveg);
+  const [messnonveg, onChangeMessNonVeg] = useState(
+    initialswitchinfo.messnonveg
+  );
+  const [messparcel, onChangeMessParcel] = useState(
+    initialswitchinfo.messparcel
+  );
 
-  const { messdata } = route.params;
   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
   const updateURL = baseURL + "/" + messdata._id;
 
@@ -44,7 +56,10 @@ function UpdateDetailsScreen({ route, navigation }) {
       number ||
       address ||
       thaliprice ||
-      monthlyprice
+      monthlyprice ||
+      messveg != initialswitchinfo.messveg ||
+      messnonveg != initialswitchinfo.messnonveg ||
+      messparcel != initialswitchinfo.messparcel
     ) {
       let thingstoupdate = {};
       if (email) {
@@ -67,6 +82,15 @@ function UpdateDetailsScreen({ route, navigation }) {
       if (address) {
         thingstoupdate["messaddress"] = address;
       }
+      if (messveg != initialswitchinfo.messveg) {
+        thingstoupdate["messveg"] = messveg;
+      }
+      if (messnonveg != initialswitchinfo.messnonveg) {
+        thingstoupdate["messnonveg"] = messnonveg;
+      }
+      if (messparcel != initialswitchinfo.messparcel) {
+        thingstoupdate["messparcel"] = messparcel;
+      }
       if (thaliprice && thaliprice > 0) {
         thingstoupdate["messthaliprice"] = thaliprice;
       }
@@ -86,7 +110,7 @@ function UpdateDetailsScreen({ route, navigation }) {
           //   console.log(data);
           // })
           .then((res) => {
-            console.log(res);
+            // console.log(res);
             Toast.show("Valid Details Updated Successfully");
             navigation.goBack();
           });
@@ -95,7 +119,7 @@ function UpdateDetailsScreen({ route, navigation }) {
         Toast.show("There are some errors");
       }
     } else {
-      Toast.show("Please Add Something to Update");
+      Toast.show("Add / Change Something to Update");
     }
   };
 
@@ -149,6 +173,45 @@ function UpdateDetailsScreen({ route, navigation }) {
           value={address}
           placeholder="Update your Address"
         />
+        <View style={styles.forswitch}>
+          <Text>Provide Veg Food</Text>
+          <Switch
+            style={{
+              flex: 1,
+            }}
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={messveg ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={onChangeMessVeg}
+            value={messveg}
+          />
+        </View>
+        <View style={styles.forswitch}>
+          <Text>Provide Non Veg Food</Text>
+          <Switch
+            style={{
+              flex: 1,
+            }}
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={messnonveg ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={onChangeMessNonVeg}
+            value={messnonveg}
+          />
+        </View>
+        <View style={styles.forswitch}>
+          <Text>Provide Parcel Food</Text>
+          <Switch
+            style={{
+              flex: 1,
+            }}
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor={messparcel ? "#f5dd4b" : "#f4f3f4"}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={onChangeMessParcel}
+            value={messparcel}
+          />
+        </View>
         <TextInput
           style={styles.input}
           onChangeText={onChangeEmail}
@@ -201,6 +264,24 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderColor: colors.medium,
     padding: 15,
+  },
+  forswitch: {
+    flex: 1,
+    flexDirection: "row",
+    height: 50,
+    margin: 10,
+    // alignSelf: "center",
+    // alignContent: "center",
+    alignItems: "center",
+    // justifyContent: "center",
+    // overflow: "hidden",
+    borderWidth: 1,
+    borderRadius: 25,
+    width: "80%",
+    backgroundColor: colors.white,
+    borderColor: colors.medium,
+    padding: 10,
+    paddingLeft: 15,
   },
   mainbutton: { width: "40%", margin: 10, marginTop: 35 },
   buttonContainer: {

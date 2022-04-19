@@ -26,21 +26,23 @@ function OwnerAccountScreen({ route, navigation }) {
           title={alldata.messname}
           subTitle={alldata.messaddress}
           imageUrl={alldata.messimage}
-          // onPress={() => navigation.navigate("")}
+          onPress={() =>
+            navigation.navigate("DetailsScreen", { Itemid: alldata })
+          }
         />
       </TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.separatecontainer}>
           <ListItem
-            title="Daily Views : 99"
+            title={"Daily Views : " + alldata.messviews}
             IconComponent={<Icon name="eye" backgroundColor={colors.medium} />}
           />
         </View>
         <TouchableOpacity style={styles.separatecontainer}>
           <ListItem
-            title="Update Menu Images"
+            title="Update Daily Menu Image"
             IconComponent={
-              <Icon name="image" backgroundColor={colors.primary} />
+              <Icon name="camera" backgroundColor={colors.primary} />
             }
             onPress={() => navigation.navigate("UpdateImageScreen")}
           />
@@ -59,6 +61,13 @@ function OwnerAccountScreen({ route, navigation }) {
                 messdata: alldata,
               })
             }
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.innercontainer}>
+          <ListItem
+            title="Update Mess Image"
+            IconComponent={<Icon name="image" backgroundColor="#767FFF" />}
+            onPress={() => navigation.navigate("UpdateImageScreen")}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>
