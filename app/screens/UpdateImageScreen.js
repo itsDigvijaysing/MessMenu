@@ -9,7 +9,7 @@ import FormImagePicker from "../components/FormImagePicker";
 import AppButton from "../components/AppButton";
 import AppText from "../components/Text";
 import Toast from "react-native-simple-toast";
-import { EAzureBlobStorageFile } from "react-native-azure-blob-storage";
+// import { EAzureBlobStorageFile } from "react-native-azure-blob-storage";
 
 function UpdateImageScreen({ route, navigation }) {
   const [imageUri, setImageUri] = useState();

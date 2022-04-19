@@ -1,6 +1,6 @@
 # Demo Video Link: https://www.youtube.com/watch?v=xetzHk-LvHg
 
-# Mess Menu App with help of Rect Native Framework
+# Mess Menu App with help of React Native Framework
 
 > Current Present things & They will be updated as per requirement.
 
