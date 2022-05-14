@@ -24,7 +24,13 @@ function UpdateImageScreen({ route, navigation }) {
   const [imageb64, setImageb64] = useState();
   const updateimageURL = baseURL + "/upmessimages/" + messdata._id;
 
+  var UploadingS = null;
   // let formdata = new FormData();
+  if (imageto == "messmenuimages") {
+    UploadingS = "Upload Mess Menu";
+  } else {
+    UploadingS = "Upload Mess Image";
+  }
 
   let toUpdateImage = async () => {
     if (imageUri) {
@@ -33,6 +39,8 @@ function UpdateImageScreen({ route, navigation }) {
         .then((res) => {
           setImageb64(res);
           imageupdating["messid"] = messdata._id;
+          imageupdating["messimagep"] = messdata.messimage;
+          imageupdating["messmenuimagep"] = messdata.messmenuimage;
           imageupdating["imageto"] = imageto;
           imageupdating["imageb64"] = imageb64;
         })
@@ -83,10 +91,11 @@ function UpdateImageScreen({ route, navigation }) {
             fontSize: 30,
             fontWeight: "bold",
             margin: 15,
+            textAlign: "center",
             color: colors.darkgrey,
           }}
         >
-          Update Image
+          {messdata.messname + "\n" + UploadingS}
         </Text>
       </View>
       <View style={styles.container}>

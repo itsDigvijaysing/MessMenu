@@ -9,13 +9,14 @@ import colors from "../config/colors";
 import ItemSeparator from "../components/ItemSeparator";
 import ListItemSwipeAction from "../components/ListItemSwipeAction";
 
+// OLD Screen Not Primary Now so No Updates here
 const initialmess = [
   {
     id: 1,
     title: "Om sai Mess",
     description: "ambegaon bk",
     image: {
-      uri: "https://imgmediagumlet.lbb.in/media/2019/11/5dccf7dcb93b792583cb0728_1573713884592.jpg?fm=webp&w=750&h=500&dpr=1",
+      uri: "../assets/mess-menu.png",
     },
     price: 60,
   },
@@ -24,7 +25,7 @@ const initialmess = [
     title: "ShivaShri Mess",
     description: "ambegaon bk",
     image: {
-      uri: "https://media-cdn.tripadvisor.com/media/photo-s/1b/69/d5/58/punjabi-thali.jpg",
+      uri: "../assets/mess-menu.png",
     },
     price: 70,
   },
@@ -33,7 +34,7 @@ const initialmess = [
     title: "Sunny Mess",
     description: "ambegaon bk",
     image: {
-      uri: "https://ribbonstopastas.com/wp-content/uploads/2020/01/up-thali.jpg",
+      uri: "../assets/mess-menu.png",
     },
     price: 80,
   },
@@ -42,7 +43,7 @@ const initialmess = [
     title: "Vitthal Mess",
     description: "ambegaon bk",
     image: {
-      uri: "https://images.indulgexpress.com/uploads/user/ckeditor_images/article/2021/8/19/GRT.jpg?w=576&dpr=1.3",
+      uri: "../assets/mess-menu.png",
     },
     price: 100,
   },
@@ -51,7 +52,7 @@ const initialmess = [
     title: "Krishna Mess",
     description: "ambegaon bk",
     image: {
-      uri: "https://5.imimg.com/data5/WX/BQ/MY-64410820/indian-food-500x500.jpg",
+      uri: "../assets/mess-menu.png",
     },
     price: 80,
   },
