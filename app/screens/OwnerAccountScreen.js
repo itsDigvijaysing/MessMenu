@@ -44,7 +44,12 @@ function OwnerAccountScreen({ route, navigation }) {
             IconComponent={
               <Icon name="camera" backgroundColor={colors.primary} />
             }
-            onPress={() => navigation.navigate("UpdateImageScreen")}
+            onPress={() =>
+              navigation.navigate("UpdateImageScreen", {
+                messdata: alldata,
+                imageto: "messmenuimages",
+              })
+            }
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>
@@ -67,7 +72,12 @@ function OwnerAccountScreen({ route, navigation }) {
           <ListItem
             title="Update Mess Image"
             IconComponent={<Icon name="image" backgroundColor="#767FFF" />}
-            onPress={() => navigation.navigate("UpdateImageScreen")}
+            onPress={() =>
+              navigation.navigate("UpdateImageScreen", {
+                messdata: alldata,
+                imageto: "messimages",
+              })
+            }
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.innercontainer}>

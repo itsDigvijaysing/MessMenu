@@ -9,18 +9,48 @@ import FormImagePicker from "../components/FormImagePicker";
 import AppButton from "../components/AppButton";
 import AppText from "../components/Text";
 import Toast from "react-native-simple-toast";
+
+import { baseURL } from "../api/baseurl";
 // import { EAzureBlobStorageFile } from "react-native-azure-blob-storage";
 
 function UpdateImageScreen({ route, navigation }) {
+  const { messdata, imageto } = route.params;
+
+  // console.log(imageto);
+  // console.log(messdata);
+
   const [imageUri, setImageUri] = useState();
+  const updateimageURL = baseURL + "/" + imageto + "/" + messdata._id;
+  let formdata = new FormData();
 
-  // const handleAdd = (uri) => {
-  //   setImageUri([...imageUri, uri]);
-  // };
-
-  // const handleRemove = (uri) => {
-  //   setImageUri(imageUri.filter((imageUri) => imageUri != uri));
-  // };
+  let toUpdateImage = () => {
+    if (imageUri) {
+      console.log(imageUri);
+      formdata.append("messname", "test");
+      formdata.append("messimage", imageUri);
+      try {
+        fetch(updateimageURL, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          body: formdata,
+        })
+          .then((response) => {
+            console.log(formdata);
+            console.log("image uploaded", updateimageURL);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {
+        console.log("Error : " + error);
+        Toast.show("There are some errors");
+      }
+    } else {
+      Toast.show("Add / Change Something to Update");
+    }
+  };
 
   return (
     <View style={styles.megacontainer}>
@@ -48,7 +78,9 @@ function UpdateImageScreen({ route, navigation }) {
             title="Update"
             color="secondary"
             onPress={() => {
-              navigation.goBack(), Toast.show("Working on it...");
+              toUpdateImage();
+              // console.log(imageUri);
+              // navigation.goBack(), Toast.show("Working on it...");
             }}
           />
         </View>
