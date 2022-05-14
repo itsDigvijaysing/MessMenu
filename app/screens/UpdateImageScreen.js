@@ -9,6 +9,7 @@ import FormImagePicker from "../components/FormImagePicker";
 import AppButton from "../components/AppButton";
 import AppText from "../components/Text";
 import Toast from "react-native-simple-toast";
+import RNFS from "react-native-fs";
 
 import { baseURL } from "../api/baseurl";
 // import { EAzureBlobStorageFile } from "react-native-azure-blob-storage";
@@ -20,32 +21,54 @@ function UpdateImageScreen({ route, navigation }) {
   // console.log(messdata);
 
   const [imageUri, setImageUri] = useState();
-  const updateimageURL = baseURL + "/" + imageto + "/" + messdata._id;
-  let formdata = new FormData();
+  const [imageb64, setImageb64] = useState();
+  const updateimageURL = baseURL + "/upmessimages/" + messdata._id;
 
-  let toUpdateImage = () => {
+  // let formdata = new FormData();
+
+  let toUpdateImage = async () => {
     if (imageUri) {
-      console.log(imageUri);
-      formdata.append("messname", "test");
-      formdata.append("messimage", imageUri);
-      try {
-        fetch(updateimageURL, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          body: formdata,
+      var imageupdating = {};
+      await RNFS.readFile(imageUri, "base64")
+        .then((res) => {
+          setImageb64(res);
+          imageupdating["messid"] = messdata._id;
+          imageupdating["imageto"] = imageto;
+          imageupdating["imageb64"] = imageb64;
         })
-          .then((response) => {
-            console.log(formdata);
-            console.log("image uploaded", updateimageURL);
+        .catch((error) => {
+          console.log("B64 has some error: ", error);
+        });
+
+      // console.log(imageUri);
+      // formdata.append("messname", messdata.messname);
+      // formdata.append("messimage", imageUri);
+      // console.log(formdata);
+      // setTimeout(() => {
+      //   console.log("2 sec.");
+      // }, 2000);
+      if (imageb64) {
+        try {
+          fetch(updateimageURL, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(imageupdating),
           })
-          .catch((err) => {
-            console.log(err);
-          });
-      } catch (error) {
-        console.log("Error : " + error);
-        Toast.show("There are some errors");
+            .then((response) => {
+              console.log("image uploaded", updateimageURL);
+              navigation.goBack(), Toast.show("File Uploaded");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        } catch (error) {
+          console.log("Error : " + error);
+          Toast.show("There are some errors");
+        }
+      } else {
+        Toast.show("Heavy Load on System Wait");
       }
     } else {
       Toast.show("Add / Change Something to Update");

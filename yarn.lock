@@ -5980,6 +5980,11 @@
     "loader-utils" "^2.0.0"
     "schema-utils" "^2.6.5"
 
+"file-to-array-buffer@^1.0.0":
+  "integrity" "sha512-rcJKsia0uWadVOwR9Ov6r0HLClWs/ZESzayu/wQ+DjRuxw6tD5rv8u7p6LGG3bXMbC+IdWXye/xsY3GnOzj0fA=="
+  "resolved" "https://registry.npmjs.org/file-to-array-buffer/-/file-to-array-buffer-1.0.0.tgz"
+  "version" "1.0.0"
+
 "filelist@^1.0.1":
   "integrity" "sha512-z7O0IS8Plc39rTCq6i6iHxk43duYOn8uFJiWSewIq0Bww1RNybVHSCjahmcC87ZqAm4OTvFzlzeGu3XAzG1ctQ=="
   "resolved" "https://registry.npmjs.org/filelist/-/filelist-1.0.2.tgz"

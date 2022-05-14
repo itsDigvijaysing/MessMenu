@@ -65,18 +65,7 @@ function DetailsScreen({ route, navigation }) {
           // onPress={() => navigation.navigate("DetailsScreen")}
         />
       </View>
-      {/* <View style={styles.userContainer}>
-        <AppText
-          style={{ fontWeight: "bold", padding: 15, paddingBottom: -15 }}
-        >
-          Menu Highlights:
-        </AppText>
-        <AppText style={styles.data}>
-          Mashroom Paneer Masala {"\n"}
-          Matki Fry Usal{"\n"}
-          Gajar Halwa{"\n"}
-        </AppText>
-      </View> */}
+
       <View style={styles.userContainer}>
         <View style={{ flexDirection: "row" }}>
           <View
