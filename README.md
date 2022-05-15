@@ -1,4 +1,4 @@
-# MessMenu (Hybrid App) <br /> Mess Menu App with help of React Native Framework Fronted
+# MessMenu (Hybrid App) <br /> Using Frontend:- React Native Framework,Reactjs, modules, Js, CSS. <br />Backend:- nodejs, expressjs, mongodb, blobstorage, modules, azure services.
 
 # New Prototype Video Link :"#"
 
