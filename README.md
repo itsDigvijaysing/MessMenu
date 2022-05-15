@@ -1,6 +1,6 @@
 # MessMenu (Hybrid App)
 
-## Using Frontend:- React Native Framework,Reactjs, modules, Js, CSS. <br />Backend:- nodejs, expressjs, mongodb, blobstorage, modules, azure services.
+## <b>Frontend:-</b> React Native Framework,Reactjs, modules, Js, CSS. <br /><b>Backend:- </b>nodejs, expressjs, mongodb, blobstorage, modules, azure services.
 
 ## New Prototype Video Link :"#"
 
