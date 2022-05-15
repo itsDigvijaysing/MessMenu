@@ -17,11 +17,11 @@ Customer can easily view All Mess and there pricing
 <br />
 
 After Clicking on Mess Customer can view Details of Mess
-![ScreenShot](./README_images_frontend\custdetailsinfo.png)
+![ScreenShot](./README_images_frontend/custdetailsinfo.png)
 <br />
 
 New Mess Owner can Create Account (Signup) in simple way
-![ScreenShot](./README_images_frontend\azsignupscreen.png)
+![ScreenShot](./README_images_frontend/azsignupscreen.png)
 <br />
 
 Mess Owner can easily login using email and password (encrypted)
