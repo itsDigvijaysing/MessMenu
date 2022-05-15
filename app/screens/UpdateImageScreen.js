@@ -48,15 +48,9 @@ function UpdateImageScreen({ route, navigation }) {
           console.log("B64 has some error: ", error);
         });
 
-      // console.log(imageUri);
-      // formdata.append("messname", messdata.messname);
-      // formdata.append("messimage", imageUri);
-      // console.log(formdata);
-      // setTimeout(() => {
-      //   console.log("2 sec.");
-      // }, 2000);
       if (imageb64) {
         try {
+          Toast.show("Uploading Image...");
           fetch(updateimageURL, {
             method: "PATCH",
             headers: {
@@ -76,7 +70,7 @@ function UpdateImageScreen({ route, navigation }) {
           Toast.show("There are some errors");
         }
       } else {
-        Toast.show("Heavy Load on System Wait");
+        Toast.show("Heavy Load, please try again");
       }
     } else {
       Toast.show("Add / Change Something to Update");

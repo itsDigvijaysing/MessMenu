@@ -9,6 +9,7 @@ import Card from "../components/Card";
 import colors from "../config/colors";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
+import Toast from "react-native-simple-toast";
 import useApi from "../hooks/useApi";
 import SearchBar from "react-native-dynamic-search-bar";
 
@@ -26,6 +27,24 @@ function ListingsScreen({ navigation }) {
 
   return (
     <Screen style={styles.screen}>
+      <SearchBar
+        style={{
+          margin: 10,
+          marginTop: 0,
+          width: "95%",
+          borderWidth: 1,
+          borderColor: "#3f3f3f",
+          backgroundColor: "#fff",
+        }}
+        fontColor="#c6c6c6"
+        iconColor="#c6c6c6"
+        cancelIconColor="#c6c6c6"
+        placeholder="Search here"
+        onChangeText={(text) => console.log(text)}
+        onSearchPress={() => Toast.show("Working on it")}
+        // onClearPress={(() => (text = null), Toast.show("Clear Pressed"))}
+        // onPress={() => alert("onPress")}
+      />
       {error && (
         <>
           <AppText>Couldn't Retrieve the listings.</AppText>
@@ -42,24 +61,6 @@ function ListingsScreen({ navigation }) {
           justifyContent: "center",
           alignItems: "center",
         }}
-      />
-      <SearchBar
-        style={{
-          margin: 10,
-          marginTop: 0,
-          width: "95%",
-          borderWidth: 1,
-          borderColor: "#3f3f3f",
-          backgroundColor: "#fff",
-        }}
-        fontColor="#c6c6c6"
-        iconColor="#c6c6c6"
-        cancelIconColor="#c6c6c6"
-        placeholder="Search here"
-        onChangeText={(text) => console.log(text)}
-        onSearchPress={() => console.log("Search Icon is pressed")}
-        onClearPress={() => console.log("Clear Button Pressed")}
-        // onPress={() => alert("onPress")}
       />
       <FlatList
         data={listings}

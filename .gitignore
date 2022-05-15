@@ -13,6 +13,7 @@ web-build/
 .DS_Store
 
 # Personal
+.env
 Project Synopsis.txt
 db.txt
 Backend/node_modules

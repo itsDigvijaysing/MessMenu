@@ -40,7 +40,7 @@ function MessOwnerCreateAccScreen({ navigation }) {
 
   let onCreateAccount = () => {
     if (email && name && pass) {
-      if (pass.length > 4 && reg.test(email)) {
+      if (pass.length > 4 && pass.length < 16 && reg.test(email)) {
         try {
           fetch(baseURL, {
             method: "POST",
@@ -66,8 +66,8 @@ function MessOwnerCreateAccScreen({ navigation }) {
           console.log("Error : " + error);
           Toast.show("There are some errors");
         }
-      } else if (pass.length <= 4) {
-        Toast.show("Minimum Password Length is 5");
+      } else if (pass.length <= 4 || pass.length > 16) {
+        Toast.show("Password Length is 5 to 16");
       } else {
         Toast.show("Please Enter Valid Email");
       }
