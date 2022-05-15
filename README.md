@@ -9,11 +9,11 @@
 ## UI & Working:-
 
 Welcome Screen After Starting MessMenu App
-![ScreenShot](./README_images_frontend\messmenuapkwelcome.png)
+![ScreenShot](./README_images_frontend/messmenuapkwelcome.png)
 <br />
 
 Customer can easily view All Mess and there pricing
-![ScreenShot](./README_images_frontend\azlistingscreen.png)
+![ScreenShot](./README_images_frontend/azlistingscreen.png)
 <br />
 
 After Clicking on Mess Customer can view Details of Mess
@@ -25,19 +25,19 @@ New Mess Owner can Create Account (Signup) in simple way
 <br />
 
 Mess Owner can easily login using email and password (encrypted)
-![ScreenShot](./README_images_frontend\loginassample.png)
+![ScreenShot](./README_images_frontend/loginassample.png)
 <br />
 
 After Login Mess Owner can see there mess details and update options
-![ScreenShot](./README_images_frontend\detailsscreen.png)
+![ScreenShot](./README_images_frontend/detailsscreen.png)
 <br />
 
 Mess Owner can update menu and mess dp using imageupload page
-![ScreenShot](./README_images_frontend\imageuploadfd.png)
+![ScreenShot](./README_images_frontend/imageuploadfd.png)
 <br />
 
 Mess Owner can update all the details of there mess information
-![ScreenShot](./README_images_frontend\updatedetailsscreen.png)
+![ScreenShot](./README_images_frontend/updatedetailsscreen.png)
 
 ## All Backend Info Present on MessMenu-Backend-Repo README.md file
 
