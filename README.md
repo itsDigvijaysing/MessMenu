@@ -2,7 +2,7 @@
 
 ## <b>Frontend:-</b> React Native Framework,Reactjs, modules, Js, CSS. <br /><b>Backend:- </b>nodejs, expressjs, azure mongodb, blobstorage, modules, azure vm, azure services.
 
-## New Prototype Video Link : https://www.youtube.com/watch?v=
+## New Prototype Video Link : https://youtu.be/xoaFDFJ_QQk
 
 > OLD Demo Video Link: https://www.youtube.com/watch?v=xetzHk-LvHg <br />
 > Current Present things & They will be updated as per requirement.
