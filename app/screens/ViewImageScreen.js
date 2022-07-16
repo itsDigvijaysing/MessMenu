@@ -1,15 +1,14 @@
 import React from "react";
 import {
-  Button,
   Image,
   StyleSheet,
   View,
   TouchableOpacity,
 } from "react-native";
 import colors from "../config/colors";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import AppButton from "../components/AppButton";
-import { NavigationContainer } from "@react-navigation/native";
+// import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import AppButton from "../components/AppButton";
+// import { NavigationContainer } from "@react-navigation/native";
 
 function ViewImageScreen({ route, navigation }) {
   // react-native-share has problem with expo so using basic fucnctionality only txt share

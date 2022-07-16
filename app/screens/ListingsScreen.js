@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { ActivityIndicator, FlatList, StyleSheet } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 import listingsApi from "../api/listings";
 import Screen from "../components/Screen";

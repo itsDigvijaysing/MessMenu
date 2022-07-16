@@ -3,20 +3,19 @@ import {
   Image,
   View,
   StyleSheet,
-  Button,
   Text,
   TouchableOpacity,
 } from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
-import listingsApi from "../api/listings";
-import useApi from "../hooks/useApi";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import listingsApi from "../api/listings";
+// import useApi from "../hooks/useApi";
+// import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Icon from "../components/Icon";
 
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+// import { createStackNavigator } from "@react-navigation/stack";
+// import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function DetailsScreen({ route, navigation }) {
   const { Itemid } = route.params;

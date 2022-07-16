@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import {
-  TextInput,
   View,
   StyleSheet,
-  Platform,
   Modal,
   Button,
 } from "react-native";

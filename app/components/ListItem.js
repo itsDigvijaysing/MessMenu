@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
-import Swipeable from "react-native-gesture-handler/Swipeable";
+// import Swipeable from "react-native-gesture-handler/Swipeable";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function ListItem({

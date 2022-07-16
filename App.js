@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import {
   Share,
-  Button,
-  Text,
-  View,
-  style,
-  StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import Screen from "./app/components/Screen";
+// import Screen from "./app/components/Screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 

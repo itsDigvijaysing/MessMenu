@@ -5,22 +5,18 @@ import {
   Text,
   StyleSheet,
   Button,
-  TextInput,
-  SafeAreaView,
-  useWindowDimensions,
-  KeyboardAvoidingView,
-  ScrollView,
+  TextInput
 } from "react-native";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 
 import colors from "../config/colors";
-import * as Yup from "yup";
-import listingsApi from "../api/listings";
+// import * as Yup from "yup";
+// import listingsApi from "../api/listings";
 import Toast from "react-native-simple-toast";
 import { baseURL } from "../api/baseurl";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+// import { createStackNavigator } from "@react-navigation/stack";
+// import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function MessOwnerLoginScreen({ route, navigation }) {
   const [email, onChangeEmail] = React.useState(null);

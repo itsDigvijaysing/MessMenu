@@ -2,8 +2,6 @@ import React from "react";
 import {
   View,
   StyleSheet,
-  FlatList,
-  Text,
   TouchableOpacity,
 } from "react-native";
 
@@ -13,8 +11,8 @@ import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
-import ItemSeaprator from "../components/ItemSeparator";
-import AppText from "../components/AppText";
+// import ItemSeaprator from "../components/ItemSeparator";
+// import AppText from "../components/AppText";
 
 function OwnerAccountScreen({ route, navigation }) {
   const { alldata } = route.params;

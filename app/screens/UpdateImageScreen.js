@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import colors from "../config/colors";
-import * as Yup from "yup";
 import ImageInput from "../components/ImageInput";
-import ImageInputList from "../components/ImageInputList";
-import AppPicker from "../components/Picker";
-import FormImagePicker from "../components/FormImagePicker";
+// import * as Yup from "yup";
+// import ImageInputList from "../components/ImageInputList";
+// import AppPicker from "../components/Picker";
+// import FormImagePicker from "../components/FormImagePicker";
+// import AppText from "../components/Text";
 import AppButton from "../components/AppButton";
-import AppText from "../components/Text";
 import Toast from "react-native-simple-toast";
 import RNFS from "react-native-fs";
 

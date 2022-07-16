@@ -7,8 +7,8 @@ import {
   Text,
   Button,
 } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AppButton from "../components/AppButton";
 import colors from "../config/colors";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
-import { createStackNavigator } from "@react-navigation/stack";
+// import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 function AppButton({ title, screen, onPress, color = "primary" }) {

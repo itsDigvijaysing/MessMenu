@@ -3,11 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   TextInput,
-  SafeAreaView,
-  ToastAndroid,
-  useWindowDimensions,
   ScrollView,
 } from "react-native";
 import AppText from "../components/AppText";
@@ -16,10 +12,10 @@ import React from "react";
 import * as Yup from "yup";
 
 import colors from "../config/colors";
-import listingsApi from "../api/listings";
-import client from "../api/client";
-import useApi from "../hooks/useApi";
-import { useState } from "react";
+// import listingsApi from "../api/listings";
+// import client from "../api/client";
+// import useApi from "../hooks/useApi";
+// import { useState } from "react";
 import Toast from "react-native-simple-toast";
 import { baseURL } from "../api/baseurl";
 
