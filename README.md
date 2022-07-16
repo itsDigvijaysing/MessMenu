@@ -70,3 +70,10 @@ Mess Owner can update all the details of there mess information
 ## Custom Components:-
 
 Around 20+ Components
+
+<a href="https://www.flaticon.com/free-icons/menu" title="menu icons">Free icons created by Srip - Flaticon</a>
+
+## Apk Generation
+
+for apk: ./gradlew assemblerelease
+for bundle (PlayStore): /gradlew bundlerelease

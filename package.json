@@ -68,16 +68,16 @@
   },
   "private": true,
   "name": "messmenu",
-  "description": "> Current Present things & They will be updated as per requirement.",
+  "description": "> Menu App for nearby Restaurants & They will be updated as per requirement.",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RoyalTechie/MessMenu.git"
+    "url": "git+https://github.com/DBRajput/MessMenu.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RoyalTechie/MessMenu/issues"
+    "url": "https://github.com/DBRajput/MessMenu/issues"
   },
-  "homepage": "https://github.com/RoyalTechie/MessMenu#readme"
+  "homepage": "https://github.com/DBRajput/MessMenu#readme"
 }
