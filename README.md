@@ -77,3 +77,9 @@ Around 20+ Components
 
 for apk: ./gradlew assemblerelease
 for bundle (PlayStore): /gradlew bundlerelease
+
+# Published on ApkMirror & Galaxy Store
+
+Beta Tester Link:
+http://apps.samsung.com/betastore/openAppDetail.as?appId=MessMenu.apk&cId=000006400070
+
