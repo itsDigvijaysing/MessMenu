@@ -7,19 +7,23 @@
 [ ] Work needed to be done
 -->
 
-- [ ] Design work start :-
+- [x] Design work start :-
   - [x] WelcomeScreen
   - [x] ViewImageScreen
-  - [ ] DetailsScreen
-  - [ ] HomeScreen
-  - [ ] ListingScreen
-  - [ ] OwnerAccountScreen
-- [ ] Development :-
-  - [ ] Screen Connect
-  - [ ] Backend Data
-  - [ ] Login Connection
-  - [ ] Others
-- [ ] Unit testing :-
-  - [ ] Others
+  - [x] DetailsScreen
+  - [x] HomeScreen
+  - [x] ListingScreen
+  - [x] OwnerAccountScreen
+
+- [x] Development :-
+  - [x] Screen Connect
+  - [x] Backend Data
+  - [x] Login Connection
+  - [x] Others
+  - [x] Unit testing :-
+  - [ ] Retest & Rewrite Code Updates
+
 - [ ] Production :-
-  - [ ] Others
+  - [x] Published to Samsung Store @2022
+    - App Reversed back
+  - [ ] Deploy App with Updates.
