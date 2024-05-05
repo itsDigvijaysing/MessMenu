@@ -1,5 +1,9 @@
 # MessMenu (Hybrid App)
 
+<p>
+Many people like me live away from home for studies, jobs, or business. We often eat at mess restaurants or order tiffin from freelancing housewives, as their food is budget-friendly (around 70rs per thali) & daily they update there menu. However, checking the menu at each restaurant manually by visiting it or by calling is inefficient. To solve this, I propose the Mess Menu app. This app, compatible with multiple platforms, allows users to view and order from all nearby mess restaurants and tiffin services.
+</p>
+
 ## Backend Link:- https://gitfront.io/r/user-8791837/Mn8hRF8drAm6/MessMenu-Backend/
 
 ## <b>Frontend:-</b> React Native Framework,Reactjs, modules, Js, CSS. <br /><b>Backend:- </b>nodejs, expressjs, azure mongodb, blobstorage, modules, azure vm, azure services.
